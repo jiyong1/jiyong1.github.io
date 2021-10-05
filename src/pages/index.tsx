@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const Layout = styled.div`
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import BaseLayout from '@layouts/base';
 
 const Index = (): JSX.Element => {
-  return <Layout>seventwo devlog test</Layout>;
+  return (
+    <BaseLayout title={'seventwo devlog'}>
+      <h1>hihi</h1>
+    </BaseLayout>
+  );
 };
 
 export default Index;
