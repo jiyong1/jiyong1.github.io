@@ -7,6 +7,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-mdx',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -14,6 +15,17 @@ module.exports = {
         path: './src/pages/',
       },
       __key: 'pages',
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@components': 'src/components',
+          '@layouts': 'src/layouts',
+          '@images': 'src/images',
+        },
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+      },
     },
   ],
 };
