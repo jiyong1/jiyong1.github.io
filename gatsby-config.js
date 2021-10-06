@@ -8,6 +8,8 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-mdx',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-dark-mode',
+    'gatsby-plugin-portal',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -23,6 +25,7 @@ module.exports = {
           '@components': 'src/components',
           '@layouts': 'src/layouts',
           '@images': 'src/images',
+          '@types': 'src/types',
         },
         extensions: ['js', 'jsx', 'ts', 'tsx'],
       },

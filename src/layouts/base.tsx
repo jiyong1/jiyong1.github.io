@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GlobalStyle from './GlobalStyle';
 import { Helmet } from 'react-helmet';
-import favicon from '@images/favicon.ico';
+import { ThemeToggler } from 'gatsby-plugin-dark-mode';
+import styled, { ThemeProvider } from 'styled-components';
 
-const BaseLayout = ({ children, title }: { children: React.ReactNode; title: string }) => {
+import favicon from '@images/favicon.ico';
+import TopNav from '@components/topnav';
+import theme from '../style/theme';
+
+interface IThemeProps {
+  theme: string;
+  toggleTheme: (value: string) => void;
+}
+
+interface IBaseLayoutProps {
+  children: React.ReactNode;
+  title?: string;
+  maxWidth?: string;
+}
+
+const BaseLayout = ({ children, title = 'seventwo devlog', maxWidth = '1024px' }: IBaseLayoutProps) => {
+  useEffect(() => {
+    if (!localStorage.getItem('theme')) {
+      const isDark = window.matchMedia(`(prefers-color-scheme: dark)`).matches;
+      const darkmode = isDark ? 'dark' : 'light';
+      localStorage.setItem('theme', darkmode);
+    }
+  }, []);
+
   return (
     <React.Fragment>
       <GlobalStyle />
@@ -16,11 +40,29 @@ const BaseLayout = ({ children, title }: { children: React.ReactNode; title: str
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap"
           rel="stylesheet"
         />
+        <script src="https://kit.fontawesome.com/63e1d65e2b.js" crossOrigin="anonymous"></script>
         <link rel="icon" href={favicon} />
       </Helmet>
-      {children}
+      <ThemeProvider theme={theme}>
+        <ThemeToggler>
+          {({ theme, toggleTheme }: IThemeProps) => {
+            return (
+              <>
+                <TopNav theme={theme} toggleTheme={toggleTheme} />
+                <Content style={{ maxWidth }}>{children}</Content>
+              </>
+            );
+          }}
+        </ThemeToggler>
+      </ThemeProvider>
     </React.Fragment>
   );
 };
+
+const Content = styled.div`
+  padding-top: 100px;
+  min-height: 120vh;
+  margin: 0 auto;
+`;
 
 export default BaseLayout;

@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseLayout from '@layouts/base';
 
-const Index = (): JSX.Element => {
+const Posts = () => {
   return (
     <BaseLayout>
-      <h1>hihi</h1>
+      <PostWrapper>Posts!</PostWrapper>
     </BaseLayout>
   );
 };
 
-export default Index;
+const PostWrapper = styled.div``;
+
+export default Posts;

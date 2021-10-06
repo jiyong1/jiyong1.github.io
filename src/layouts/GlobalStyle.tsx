@@ -55,6 +55,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
+    transition: .4s;
   }
   button {
     border: none;
@@ -76,6 +77,81 @@ const GlobalStyle = createGlobalStyle`
   textarea {
     &:focus {
       outline: none;
+    }
+  }
+  :root {
+    --bg-black: #222;
+    --soft-black: #444;
+    --soft-white: #fcfcf7;
+    --white-foundation: rgba(252, 252, 247, 0.3);
+    --black-foundation: rgba(68, 68, 68, 0.3);
+  }
+  #portal {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  body.light {
+    background-color: white;
+    color: black;
+    .bg-foundation {
+      background-color: var(--white-foundation);
+    }
+    .bg-soft {
+      background-color: var(--soft-white);
+      border-color: var(--soft-black);
+    }
+    .invert {
+      color: white;
+      background-color: var(--bg-black);
+    }
+    .invert-soft {
+      background-color: var(--soft-black);
+      border-color: var(--soft-white);
+    }
+    svg * {
+      stroke: var(--bg-black);
+    }
+    .brown-color {
+      color: #885838;
+    }
+    .bg-brown {
+      background-color: #885838;
+    }
+    a:hover {
+      color: #885838;
+    }
+  }
+  body.dark {
+    background-color: var(--bg-black);
+    color: white;
+    .bg-foundation {
+      background-color: var(--black-foundation);
+    }
+    .bg-soft {
+      background-color: var(--soft-black);
+      border-color: var(--soft-white);
+    }
+    .invert {
+      color: var(--bg-black);
+      background-color: white;
+    }
+    .invert-soft {
+      background-color: var(--soft-white);
+      border-color: var(--soft-black);
+    }
+    svg * {
+      stroke: var(--soft-white);
+    }
+    .brown-color {
+      color: #fbf1c8;
+    }
+    .bg-brown {
+      background-color: #fbf1c8;
+    }
+
+    a:hover {
+      color: #fbf1c8;
     }
   }
 `;
