@@ -88,6 +88,7 @@ module.exports = {
           '@layouts': 'src/layouts',
           '@images': 'src/images',
           '@types': 'src/types',
+          '@hooks': 'src/hooks',
         },
         extensions: ['js', 'jsx', 'ts', 'tsx'],
       },

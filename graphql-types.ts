@@ -427,6 +427,7 @@ export type SitePluginPluginOptionsAlias = {
   _layouts?: Maybe<Scalars['String']>;
   _images?: Maybe<Scalars['String']>;
   _types?: Maybe<Scalars['String']>;
+  _hooks?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPackageJson = {
@@ -2606,6 +2607,7 @@ export type SitePluginPluginOptionsAliasFilterInput = {
   _layouts?: Maybe<StringQueryOperatorInput>;
   _images?: Maybe<StringQueryOperatorInput>;
   _types?: Maybe<StringQueryOperatorInput>;
+  _hooks?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPackageJsonFilterInput = {
@@ -2843,6 +2845,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___alias____layouts'
   | 'pluginCreator___pluginOptions___alias____images'
   | 'pluginCreator___pluginOptions___alias____types'
+  | 'pluginCreator___pluginOptions___alias____hooks'
   | 'pluginCreator___pluginOptions___extensions'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___packageJson___name'
@@ -3076,6 +3079,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___alias____layouts'
   | 'pluginOptions___alias____images'
   | 'pluginOptions___alias____types'
+  | 'pluginOptions___alias____hooks'
   | 'pluginOptions___extensions'
   | 'pluginOptions___pathCheck'
   | 'packageJson___name'

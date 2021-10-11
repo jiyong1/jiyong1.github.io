@@ -123,6 +123,10 @@ const GlobalStyle = createGlobalStyle`
     a:hover {
       color: var(--brown-dark);
     }
+    .stroke-invert {
+      stroke: var(--bg-black);
+      fill: var(--soft-white);
+    }
   }
   body.dark {
     background-color: var(--bg-black);
@@ -158,6 +162,10 @@ const GlobalStyle = createGlobalStyle`
 
     a:hover {
       color: var(--brown-light);
+    }
+    .stroke-brown {
+      fill: var(--soft-black);
+      stroke: white;
     }
   }
 `;

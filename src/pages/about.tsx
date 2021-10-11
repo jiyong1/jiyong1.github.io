@@ -1,15 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
 import BaseLayout from '@layouts/base';
+
+// about components
+import Name from '@components/about/Name';
+import Introduce from '@components/about/Introduce';
 
 const About = (): JSX.Element => {
   return (
-    <BaseLayout title="About">
-      <AboutWrapper>about!</AboutWrapper>
+    <BaseLayout maxWidth={'100%'} title="About">
+      <div style={{ padding: '1rem' }}>
+        <Name />
+        <Introduce />
+      </div>
     </BaseLayout>
   );
 };
-
-const AboutWrapper = styled.div``;
 
 export default About;
