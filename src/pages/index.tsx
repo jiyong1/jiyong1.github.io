@@ -4,7 +4,7 @@ import BaseLayout from '@layouts/base';
 
 const Index = (): JSX.Element => {
   return (
-    <BaseLayout>
+    <BaseLayout title="홈">
       <h1>hihi</h1>
     </BaseLayout>
   );

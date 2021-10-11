@@ -6,6 +6,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import favicon from '@images/favicon.ico';
 import TopNav from '@components/topnav';
+import Footer from '@components/Footer';
 import theme from '../style/theme';
 
 interface IThemeProps {
@@ -19,7 +20,7 @@ interface IBaseLayoutProps {
   maxWidth?: string;
 }
 
-const BaseLayout = ({ children, title = 'seventwo devlog', maxWidth = '1024px' }: IBaseLayoutProps) => {
+const BaseLayout = ({ children, title, maxWidth = '1024px' }: IBaseLayoutProps): JSX.Element => {
   useEffect(() => {
     if (!localStorage.getItem('theme')) {
       const isDark = window.matchMedia(`(prefers-color-scheme: dark)`).matches;
@@ -33,7 +34,7 @@ const BaseLayout = ({ children, title = 'seventwo devlog', maxWidth = '1024px' }
       <GlobalStyle />
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{title}</title>
+        <title>{title && title.length ? `${title} | seventwo devlog` : 'seventwo devlog'}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -50,6 +51,7 @@ const BaseLayout = ({ children, title = 'seventwo devlog', maxWidth = '1024px' }
               <>
                 <TopNav theme={theme} toggleTheme={toggleTheme} />
                 <Content style={{ maxWidth }}>{children}</Content>
+                <Footer />
               </>
             );
           }}
@@ -60,8 +62,6 @@ const BaseLayout = ({ children, title = 'seventwo devlog', maxWidth = '1024px' }
 };
 
 const Content = styled.div`
-  padding-top: 100px;
-  min-height: 120vh;
   margin: 0 auto;
 `;
 

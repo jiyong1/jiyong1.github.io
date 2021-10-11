@@ -19,11 +19,13 @@ const TopNav = ({ theme, toggleTheme }: IThemeTogglerProps): JSX.Element => {
 
   return (
     <Nav className={'bg-soft'}>
-      <h1>
-        <span className={'seventwo brown-color'}>seventwo</span>
-        <span>블로그</span>
-      </h1>
-      <img src={logo} className="nav__top--logo" />
+      <Link to="/">
+        <header>
+          <span className={'seventwo brown-color'}>seventwo</span>
+          <span>블로그</span>
+        </header>
+      </Link>
+      <img src={logo} alt="seventwo logo 이미지" className="nav__top--logo" />
       <div className="nav__top--right">
         <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
         <ul className={'nav__top--content' + (contentDisplay ? ' toggle-on bg-soft' : '')}>
@@ -40,7 +42,7 @@ const TopNav = ({ theme, toggleTheme }: IThemeTogglerProps): JSX.Element => {
             </Link>
           </li>
           <li>
-            <Link to="/posts" activeClassName="brown-color nav__top--active">
+            <Link to="/categories" partiallyActive={true} activeClassName="brown-color nav__top--active">
               <div className="nav-pin bg-brown"></div>
               posts
             </Link>
@@ -72,12 +74,12 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: relative;
   background-color: white;
   backdrop-filter: blur(20px);
   width: 100%;
-  z-index: 5;
-  h1 {
+  z-index: 10;
+  header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -106,6 +108,9 @@ const Nav = styled.nav`
   .nav__top--content {
     display: flex;
     align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
     li {
       margin-left: 0.3rem;

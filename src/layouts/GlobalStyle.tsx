@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
   del, dfn, em, img, ins, kbd, q, s, samp,
   small, strike, strong, sub, sup, tt, var,
   b, u, i, center,
-  dl, dt, dd, menu, ol, ul, li,
+  dl, dt, dd, menu,
   fieldset, form, label, legend,
   table, caption, tbody, tfoot, thead, tr, th, td,
   article, aside, canvas, details, embed,
@@ -33,12 +33,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1;
     font-family: 'Noto Sans KR', sans-serif;
-  }
-  menu, ol, ul {
-    list-style: none;
-  }
-  blockquote, q {
-    quotes: none;
+    min-height: 100vh;
   }
   blockquote:before, blockquote:after,
   q:before, q:after {
@@ -82,18 +77,24 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --bg-black: #222;
     --soft-black: #444;
-    --soft-white: #fcfcf7;
+    --soft-white: #f7f7e8;
     --white-foundation: rgba(252, 252, 247, 0.3);
     --black-foundation: rgba(68, 68, 68, 0.3);
+    --brown-dark: #885838;
+    --brown-light: #EECCA5
   }
   #portal {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 8;
   }
   body.light {
     background-color: white;
     color: black;
+    .bg-normal {
+      background-color: white;
+    }
     .bg-foundation {
       background-color: var(--white-foundation);
     }
@@ -113,18 +114,22 @@ const GlobalStyle = createGlobalStyle`
       stroke: var(--bg-black);
     }
     .brown-color {
-      color: #885838;
+      color: var(--brown-dark);
     }
     .bg-brown {
-      background-color: #885838;
+      background-color: var(--brown-dark);
+      color: white;
     }
     a:hover {
-      color: #885838;
+      color: var(--brown-dark);
     }
   }
   body.dark {
     background-color: var(--bg-black);
     color: white;
+    .bg-normal {
+      background-color: var(--bg-black);
+    }
     .bg-foundation {
       background-color: var(--black-foundation);
     }
@@ -144,14 +149,15 @@ const GlobalStyle = createGlobalStyle`
       stroke: var(--soft-white);
     }
     .brown-color {
-      color: #fbf1c8;
+      color: var(--brown-light);
     }
     .bg-brown {
-      background-color: #fbf1c8;
+      background-color: var(--brown-light);
+      color: black;
     }
 
     a:hover {
-      color: #fbf1c8;
+      color: var(--brown-light);
     }
   }
 `;

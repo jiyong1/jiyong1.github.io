@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseLayout from '@layouts/base';
 
-const About = () => {
+const About = (): JSX.Element => {
   return (
-    <BaseLayout>
+    <BaseLayout title="About">
       <AboutWrapper>about!</AboutWrapper>
     </BaseLayout>
   );

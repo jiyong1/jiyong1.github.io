@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import { useEffect } from 'react';
 
-export default function Portal({ children }: { children: React.ReactNode }) {
+export default function Portal({ children }: { children: React.ReactNode }): JSX.Element {
   const portalRoot = document.getElementById('portal');
   if (!portalRoot) throw new Error('portal root가 없습니다');
 
