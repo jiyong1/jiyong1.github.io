@@ -13,7 +13,7 @@ const About = (): JSX.Element => {
       <ScrollTop />
       <Name />
       <SectionFirst />
-      <div style={{ height: '300vh', border: '2px solid red' }}></div>
+      <div style={{ height: '300vh' }}></div>
     </BaseLayout>
   );
 };

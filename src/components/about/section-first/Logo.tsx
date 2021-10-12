@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 import logo from '@images/logo.png';
 
-const Logo = ({ fixed }: { fixed: boolean }): JSX.Element => {
+const Logo = ({ style, bottom }: { style: React.CSSProperties; bottom: boolean }): JSX.Element => {
   return (
-    <LogoWrapper className={fixed ? 'fixed' : ''}>
-      <img src={logo} className="" alt="로고 이미지" />
+    <LogoWrapper className={bottom ? 'bottom' : 'top'} style={style}>
+      <img src={logo} alt="로고 이미지" />
     </LogoWrapper>
   );
 };
@@ -17,11 +17,13 @@ const LogoWrapper = styled.div`
   align-items: center;
   height: 100vh;
   width: 100%;
-
-  &.fixed {
-    position: fixed;
+  position: absolute;
+  left: 0;
+  &.top {
     top: 0;
-    left: 0;
+  }
+  &.bottom {
+    bottom: 0;
   }
 
   img {

@@ -148,7 +148,7 @@ const GlobalStyle = createGlobalStyle`
       color: var(--bg-black);
       background-color: white;
     }
-    .invert {
+    .invert-color {
       color: black;
     }
     .invert-soft {

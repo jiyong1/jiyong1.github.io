@@ -5,6 +5,7 @@ type IStyleMaxType = {
     max: number;
     unit?: (value: number) => string;
     alternate?: boolean;
+    keep?: boolean;
   };
 };
 
@@ -35,16 +36,17 @@ export default function stylePercentGenerate(
     const currentMidRange: null | [number, number] = midRange
       ? [(midRange[0] * perPercentage) / 100, (midRange[1] * perPercentage) / 100]
       : null;
-    // debugger;
 
-    return Object.entries(styleMaxObj).reduce((acc, [key, { max, unit, alternate }]) => {
+    return Object.entries(styleMaxObj).reduce((acc, [key, { max, unit, alternate, keep }]) => {
       let value = 0;
-      if (currentPer < 0 || currentPer > 1) {
-        value = 0;
-      } else {
+      if (currentPer > 1 && keep) {
+        value = max;
+      } else if (currentPer > 0 && currentPer <= 1) {
         // change percentage
         if (currentMidRange) {
           value = getValueByRange(max, currentPer, currentEndPer, currentMidRange, alternate);
+        } else {
+          value = currentPer * max;
         }
       }
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -54,7 +56,6 @@ export default function stylePercentGenerate(
       return acc;
     }, {} as React.CSSProperties);
   });
-
   return result;
 }
 

@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import stylePercentGenerate from '@utils/aboutStyle';
-import textStyle from './style';
+interface ITextProps {
+  styleArr: React.CSSProperties[];
+}
 
-const Text = ({ percentage }: { percentage: number }): JSX.Element => {
-  const styleArr = stylePercentGenerate(percentage, textStyle, 12);
-
+const Text = ({ styleArr }: ITextProps): JSX.Element => {
   return (
-    <TextWrapper className={percentage >= 1 ? 'text-display' : ''}>
+    <TextWrapper className={styleArr[0] ? 'text-display' : ''}>
       <div className="invert-color">
         <p className="text-item base-top" style={styleArr[0]}>
           안녕하세요.
@@ -32,6 +31,7 @@ const TextWrapper = styled.div`
   z-index: 4;
   font-size: 8vw;
   line-height: 3;
+
   &.text-display {
     display: flex;
     justify-content: flex-start;

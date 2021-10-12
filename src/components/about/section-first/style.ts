@@ -1,5 +1,47 @@
 import { IStyleObjType } from '@utils/aboutStyle';
-const textStyle: IStyleObjType[] = [
+const sectionFirstStyle: IStyleObjType[] = [
+  {
+    styleMaxObj: {
+      position: {
+        max: 10,
+        unit: (value: number): string => {
+          if (value > 0) return 'fixed';
+          else return 'static';
+        },
+      },
+    },
+    start: 0,
+    midRange: [2, 13],
+    end: 15,
+  },
+  {
+    styleMaxObj: {
+      transform: {
+        max: 100,
+        unit: (value: number): string => {
+          return `translateX(${value}%)`;
+        },
+        alternate: true,
+      },
+    },
+    start: 0,
+    midRange: [2, 13],
+    end: 15,
+  },
+  {
+    styleMaxObj: {
+      transform: {
+        max: 100,
+        unit: (value: number): string => {
+          return `translateX(-${value}%)`;
+        },
+        alternate: true,
+      },
+    },
+    start: 0,
+    midRange: [2, 13],
+    end: 15,
+  },
   {
     styleMaxObj: {
       opacity: {
@@ -14,9 +56,9 @@ const textStyle: IStyleObjType[] = [
         alternate: false,
       },
     },
-    start: 0,
-    end: 12,
-    midRange: [1, 11],
+    start: 2,
+    end: 14,
+    midRange: [3, 13],
   },
   {
     styleMaxObj: {
@@ -25,9 +67,9 @@ const textStyle: IStyleObjType[] = [
         alternate: true,
       },
     },
-    start: 1,
-    end: 5,
-    midRange: [3, 4],
+    start: 3,
+    end: 7,
+    midRange: [5, 6],
   },
   {
     styleMaxObj: {
@@ -36,9 +78,9 @@ const textStyle: IStyleObjType[] = [
         alternate: true,
       },
     },
-    start: 5,
-    midRange: [6, 7],
-    end: 8,
+    start: 7,
+    midRange: [8, 9],
+    end: 10,
   },
   {
     styleMaxObj: {
@@ -47,10 +89,10 @@ const textStyle: IStyleObjType[] = [
         alternate: true,
       },
     },
-    start: 8,
-    midRange: [9, 10],
-    end: 11,
+    start: 10,
+    midRange: [11, 12],
+    end: 13,
   },
 ];
 
-export default textStyle;
+export default sectionFirstStyle;
