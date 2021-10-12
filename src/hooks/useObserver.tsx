@@ -1,28 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 
-type ICallback = (entry: IntersectionObserverEntry, observer: IntersectionObserver) => void;
+type ICallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => void;
 
-function observerCall(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-  entries.forEach((entry, idx) => {
-    callBacks[idx](entry, observer);
-  });
-}
+export default function useObserver<T extends HTMLElement>(
+  refObj: React.RefObject<T>,
+  callBack: ICallback,
+  options?: IntersectionObserverInit,
+): IntersectionObserver | undefined {
+  const observer = useMemo(() => {
+    if (typeof window === 'undefined') return;
+    return new IntersectionObserver(callBack, options);
+  }, [callBack, options]);
 
-const callBacks: ICallback[] = [];
-const observer = new IntersectionObserver(observerCall, { threshold: 0 });
-
-export default function useObserver<T extends HTMLElement>(refObj: React.RefObject<T>, callBack: ICallback): void {
   useEffect(() => {
-    if (refObj.current) {
+    if (refObj.current && observer) {
       const elem = refObj.current;
-      callBacks.push(callBack);
-      const idx = callBacks.length - 1;
       observer.observe(elem);
-
       return () => {
-        observer.unobserve(elem);
-        callBacks.splice(idx, 1);
+        observer.disconnect();
       };
     }
-  }, [refObj, callBack]);
+  }, [refObj, callBack, options, observer]);
+  return observer;
 }

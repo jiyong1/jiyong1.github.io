@@ -36,13 +36,13 @@ const TopNav = ({ theme, toggleTheme }: IThemeTogglerProps): JSX.Element => {
             </Link>
           </li>
           <li>
-            <Link to="/about" activeClassName="brown-color nav__top--active">
+            <Link to="/about/" activeClassName="brown-color nav__top--active">
               <div className="nav-pin bg-brown"></div>
               about
             </Link>
           </li>
           <li>
-            <Link to="/categories" partiallyActive={true} activeClassName="brown-color nav__top--active">
+            <Link to="/categories/" partiallyActive={true} activeClassName="brown-color nav__top--active">
               <div className="nav-pin bg-brown"></div>
               posts
             </Link>

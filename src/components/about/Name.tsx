@@ -7,11 +7,11 @@ const Name = (): JSX.Element => {
   const [display, setDisplay] = useState<boolean>(true);
   const nameRef = useRef<HTMLElement>(null);
 
-  const displayHandler = useCallback((entry: IntersectionObserverEntry, observer: IntersectionObserver) => {
-    setDisplay(entry.isIntersecting);
+  const displayHandler = useCallback((entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    setDisplay(entries[0].isIntersecting);
   }, []);
 
-  useObserver(nameRef, displayHandler);
+  useObserver(nameRef, displayHandler, { threshold: 0 });
 
   return (
     <NameSection ref={nameRef}>
@@ -36,16 +36,10 @@ const Name = (): JSX.Element => {
 
 const NameDash = keyframes`
   0% {
-    stroke-dashoffset: -806;
-  }
-  40% {
-    stroke-dashoffset: 0;
-  }
-  60% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 2416;
   }
   100% {
-    stroke-dashoffset: -806;
+    stroke-dashoffset: 0;
   }
 `;
 const NameSection = styled.section`
@@ -55,9 +49,9 @@ const NameSection = styled.section`
   }
   .name {
     font-family: 'Noto Sans KR', sans-serif;
-    stroke-dasharray: 806;
+    stroke-dasharray: 2416;
     &.display {
-      animation: ${NameDash} 8s infinite;
+      animation: ${NameDash} 4s forwards;
     }
   }
 `;

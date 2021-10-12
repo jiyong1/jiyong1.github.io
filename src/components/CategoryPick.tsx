@@ -44,7 +44,7 @@ const CategoryPick = (): JSX.Element => {
   return (
     <PickWrapper className="bg-soft">
       <li>
-        <Link to="/categories" activeClassName="bg-brown">
+        <Link to="/categories/" activeClassName="bg-brown">
           All
         </Link>
       </li>
