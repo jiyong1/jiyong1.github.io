@@ -27,6 +27,7 @@ const SectionFirst = (): JSX.Element => {
     if (entry.isIntersecting && entry.boundingClientRect.top <= 0) {
       setEvent(true);
     } else {
+      setLogoBottom(false);
       setEvent(false);
     }
   }, []);
