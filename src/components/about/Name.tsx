@@ -1,9 +1,12 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import useObserver from '@hooks/useObserver';
 
+import { browserCheck } from '@utils/browser';
+
 const Name = (): JSX.Element => {
+  const [isSafari, setIsSafari] = useState<boolean>(false);
   const [display, setDisplay] = useState<boolean>(true);
   const nameRef = useRef<HTMLElement>(null);
 
@@ -13,11 +16,16 @@ const Name = (): JSX.Element => {
 
   useObserver(nameRef, displayHandler, { threshold: 0 });
 
+  useEffect(() => {
+    const browser = browserCheck();
+    setIsSafari(browser === 'Safari');
+  }, []);
+
   return (
     <NameSection ref={nameRef}>
       <svg viewBox="0 0 800 200">
         <text
-          className={'name stroke-invert' + (display ? ' display' : '')}
+          className={'name stroke-invert' + (display ? ' display' : '') + (isSafari ? ' safari' : '')}
           x="50%"
           y="50%"
           dominantBaseline="middle"
@@ -36,9 +44,17 @@ const Name = (): JSX.Element => {
 
 const NameDash = keyframes`
   0% {
-    stroke-dashoffset: 2416;
+    stroke-dashoffset: 807;
   }
   100% {
+    stroke-dashoffset: 0;
+  }
+`;
+const SafariNameDash = keyframes`
+  from {
+    stroke-dashoffset: 2416;
+  }
+  to {
     stroke-dashoffset: 0;
   }
 `;
@@ -49,9 +65,17 @@ const NameSection = styled.section`
   }
   .name {
     font-family: 'Noto Sans KR', sans-serif;
+    &:not(.safari) {
+      stroke-dasharray: 807;
+      &.display {
+        animation: ${NameDash} 4s forwards;
+      }
+    }
+  }
+  .name.safari {
     stroke-dasharray: 2416;
     &.display {
-      animation: ${NameDash} 4s forwards;
+      animation: ${SafariNameDash} 4s forwards;
     }
   }
 `;

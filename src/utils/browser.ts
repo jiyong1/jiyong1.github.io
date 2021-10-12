@@ -1,4 +1,4 @@
-export function isBrowserCheck(): string {
+export function browserCheck(): string {
   const agt = navigator.userAgent.toLowerCase();
   if (agt.indexOf('chrome') !== -1) return 'Chrome';
   if (agt.indexOf('opera') !== -1) return 'Opera';
