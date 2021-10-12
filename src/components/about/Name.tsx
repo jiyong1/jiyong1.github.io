@@ -75,7 +75,7 @@ const NameSection = styled.section`
   .name.safari {
     stroke-dasharray: 2416;
     &.display {
-      animation: ${SafariNameDash} 4s forwards;
+      animation: ${SafariNameDash} 8s forwards;
     }
   }
 `;

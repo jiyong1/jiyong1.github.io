@@ -110,6 +110,9 @@ const GlobalStyle = createGlobalStyle`
       background-color: var(--soft-black);
       border-color: var(--soft-white);
     }
+    .invert-color {
+      color: white;
+    }
     svg * {
       stroke: var(--bg-black);
     }
@@ -144,6 +147,9 @@ const GlobalStyle = createGlobalStyle`
     .invert {
       color: var(--bg-black);
       background-color: white;
+    }
+    .invert {
+      color: black;
     }
     .invert-soft {
       background-color: var(--soft-white);

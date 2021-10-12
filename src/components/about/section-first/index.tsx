@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import ObserverSection from '../Section';
 import Logo from './Logo';
+import Text from './Text';
 
 import useRFA from '@hooks/useRFA';
 import useObserver from '@hooks/useObserver';
@@ -14,9 +15,10 @@ const SectionFirst = (): JSX.Element => {
   const [fixed, setFixed] = useState<boolean>(false);
   const [opacity, setOpacity] = useState<number>(1);
   const [transformX, setTransformX] = useState<number>(0);
+  const [textPercentage, setTextPercentage] = useState<number>(0);
 
   const options = useMemo(() => {
-    const threshold = Array.from({ length: 101 }, (_, idx) => idx * 0.01);
+    const threshold = 0;
     return { threshold };
   }, []);
 
@@ -37,12 +39,23 @@ const SectionFirst = (): JSX.Element => {
     const sectionElem = sectionRef.current;
     const { top, bottom, height } = sectionElem.getBoundingClientRect();
 
+    // text animation percentage
     const textStartPoint = height / 4;
-    const transform = ((height - bottom) / textStartPoint) * 100;
-    let transformPer = 0;
-    if (transform > 0 && transform <= 100) transformPer = transform;
-    else if (transform > 100) transformPer = 100;
-    setTransformX(transformPer);
+    const textEndPoint = textStartPoint * 3;
+    let textPer = 0;
+    const textPerCandidate = (height - bottom - textStartPoint) / (textEndPoint - textStartPoint);
+    if (textPerCandidate > 0 && textPerCandidate < 1) textPer = textPerCandidate * 100;
+    else if (textPerCandidate >= 1) textPer = 100;
+
+    // background animation percentage
+    const bgTransform = ((height - bottom) / textStartPoint) * 100;
+    let bgTransformPer = 0;
+    if (bgTransform > 0 && bgTransform <= 100) bgTransformPer = bgTransform;
+    else if (bgTransform > 100) bgTransformPer = 100;
+
+    // set animation state
+    setTransformX(bgTransformPer);
+    setTextPercentage(textPer);
 
     if (top <= 0 && bottom >= 0) setFixed(true);
     else setFixed(false);
@@ -73,10 +86,12 @@ const SectionFirst = (): JSX.Element => {
       <SectionFoundation
         className="invert"
         style={{
+          width: 'calc(50% - 0.1px)',
           left: '100%',
           transform: `translateX(-${transformX}%)`,
         }}
       />
+      <Text percentage={textPercentage} />
     </ObserverSection>
   );
 };

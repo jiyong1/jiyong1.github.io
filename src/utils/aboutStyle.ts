@@ -10,57 +10,40 @@ type IStyleMaxType = {
 
 export interface IStyleObjType {
   styleMaxObj: IStyleMaxType;
-  order: number;
+  start: number;
+  end: number;
+  midRange?: [number, number];
 }
 
 export default function stylePercentGenerate(
   percentage: number,
   styleObjArr: IStyleObjType[],
-  stop?: number,
+  length: number,
 ): React.CSSProperties[] {
   if (percentage < 0 || percentage > 100) throw new Error('invalid percentage');
-  if (stop && (stop < 0 || stop >= 100)) throw new Error('invalid stop number');
 
-  const notKeepArrLength = styleObjArr.filter(({ order }) => {
-    if (!order) return false;
-    return true;
-  }).length;
-
-  const perPercentage = 100 / (notKeepArrLength + 2);
+  const perPercentage = 100 / length;
   // console.log(perPercentage);
 
   // 다시 돌아간다면 (alternate) 중간이 1의 지점
   // 아니라면 마지막이 1의 지점
-  const result = styleObjArr.map(({ styleMaxObj, order }) => {
-    const currentStartPer = !order ? 0 : (order + 1) * perPercentage;
-    const currentEndPer = !order ? 100 : (order + 2) * perPercentage;
+  const result = styleObjArr.map(({ styleMaxObj, start, end, midRange }) => {
+    const currentStartPer = start * perPercentage;
+    const currentEndPer = end * perPercentage;
     const currentPer = (percentage - currentStartPer) / (currentEndPer - currentStartPer);
-    const currentMid = (currentStartPer + currentEndPer) / 2;
-    let currentMidRange: null | [number, number];
 
-    if (!order) {
-      currentMidRange = [perPercentage / 100, ((notKeepArrLength + 1) * perPercentage) / 100];
-    } else if (stop) {
-      const relativeStop = stop / perPercentage;
-      currentMidRange = [(currentMid - relativeStop / 2) / 100, (currentMid + relativeStop / 2) / 100];
-    }
+    const currentMidRange: null | [number, number] = midRange
+      ? [(midRange[0] * perPercentage) / 100, (midRange[1] * perPercentage) / 100]
+      : null;
     // debugger;
 
     return Object.entries(styleMaxObj).reduce((acc, [key, { max, unit, alternate }]) => {
       let value = 0;
-      if (order === 0 && currentMidRange) {
-        value = getValueByRange(max, currentPer, currentEndPer, currentMidRange, alternate);
-      }
-      if (currentPer < 0) {
-        value = 0;
-      } else if (currentPer >= 1) {
+      if (currentPer < 0 || currentPer > 1) {
         value = 0;
       } else {
         // change percentage
-        if (!stop && !alternate) value = currentPer * max;
-        else if (!stop && alternate) {
-          value = currentPer > 0.5 ? (1 - currentPer) * max : currentPer * 2 * max;
-        } else if (currentMidRange) {
+        if (currentMidRange) {
           value = getValueByRange(max, currentPer, currentEndPer, currentMidRange, alternate);
         }
       }
