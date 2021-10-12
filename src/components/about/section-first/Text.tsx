@@ -9,7 +9,7 @@ const Text = ({ styleArr }: ITextProps): JSX.Element => {
   return (
     <TextWrapper className={styleArr[0] ? 'text-display' : ''}>
       <div className="invert-color">
-        <p className="text-item base-top" style={styleArr[0]}>
+        <p className="text-item text-light base-top" style={styleArr[0]}>
           안녕하세요.
         </p>
         <p className="text-item text-bold text-mid" style={styleArr[1]}>
@@ -21,7 +21,7 @@ const Text = ({ styleArr }: ITextProps): JSX.Element => {
         <p className="text-item text-bold text-mid" style={styleArr[3]}>
           소통을 중요하게 생각하는
         </p>
-        <p className="text-item base-bottom" style={styleArr[0]}>
+        <p className="text-item base-bottom text-light" style={styleArr[0]}>
           <span className="text-bold">개발자 김지용</span>입니다.
         </p>
       </div>
@@ -45,6 +45,9 @@ const TextWrapper = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+  }
+  .text-light {
+    font-weight: 300;
   }
   .text-bold {
     font-weight: bold;

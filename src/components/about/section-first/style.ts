@@ -19,21 +19,7 @@ const sectionFirstStyle: IStyleObjType[] = [
       transform: {
         max: 100,
         unit: (value: number): string => {
-          return `translateX(${value}%)`;
-        },
-        alternate: true,
-      },
-    },
-    start: 0,
-    midRange: [2, 14],
-    end: 15,
-  },
-  {
-    styleMaxObj: {
-      transform: {
-        max: 100,
-        unit: (value: number): string => {
-          return `translateX(-${value}%)`;
+          return `translateY(${value}%)`;
         },
         alternate: true,
       },
@@ -67,7 +53,7 @@ const sectionFirstStyle: IStyleObjType[] = [
         alternate: true,
       },
       transform: {
-        max: 10,
+        max: 15,
         unit: (value: number): string => {
           return `translateY(${-50 - value}%)`;
         },
@@ -85,7 +71,7 @@ const sectionFirstStyle: IStyleObjType[] = [
         alternate: true,
       },
       transform: {
-        max: 10,
+        max: 15,
         unit: (value: number): string => {
           return `translateY(${-50 - value}%)`;
         },
@@ -103,7 +89,7 @@ const sectionFirstStyle: IStyleObjType[] = [
         alternate: true,
       },
       transform: {
-        max: 10,
+        max: 15,
         unit: (value: number): string => {
           return `translateY(${-50 - value}%)`;
         },

@@ -69,7 +69,7 @@ const SectionFirst = (): JSX.Element => {
   }, [percentage, event]);
 
   const textStyle = useMemo(() => {
-    return styleArr.slice(3);
+    return styleArr.slice(2);
   }, [styleArr]);
 
   return (
@@ -78,15 +78,7 @@ const SectionFirst = (): JSX.Element => {
       <SectionFoundation
         className="invert"
         style={{
-          right: '100%',
           ...styleArr[1],
-        }}
-      />
-      <SectionFoundation
-        className="invert"
-        style={{
-          left: '100%',
-          ...styleArr[2],
         }}
       />
       <Text styleArr={textStyle} />
@@ -95,11 +87,12 @@ const SectionFirst = (): JSX.Element => {
 };
 
 const SectionFoundation = styled.div`
-  width: 50%;
+  width: 100vw;
   height: 100vh;
   opacity: 0.8;
   position: fixed;
-  top: 0;
+  bottom: 100%;
+  left: 0;
   z-index: 3;
 `;
 

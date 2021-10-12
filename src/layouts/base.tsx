@@ -37,9 +37,9 @@ const BaseLayout = ({ children, title, maxWidth = '1024px' }: IBaseLayoutProps):
         <meta charSet="utf-8" />
         <title>{title && title.length ? `${title} | seventwo devlog` : 'seventwo devlog'}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap"
           rel="stylesheet"
         />
         <script src="https://kit.fontawesome.com/63e1d65e2b.js" crossOrigin="anonymous"></script>
