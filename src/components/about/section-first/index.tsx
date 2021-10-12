@@ -19,7 +19,7 @@ const SectionFirst = (): JSX.Element => {
   const [percentage, setPercentage] = useState<number>(0);
 
   const options = useMemo(() => {
-    const threshold = [0, 0.2];
+    const threshold = [0, 1 / 8];
     return { threshold };
   }, []);
 
@@ -72,7 +72,7 @@ const SectionFirst = (): JSX.Element => {
   }, [styleArr]);
 
   return (
-    <ObserverSection ref={sectionRef} height="500vh" opacity={1}>
+    <ObserverSection ref={sectionRef} height="800vh" opacity={1}>
       <Logo style={logoBottom ? {} : styleArr[0]} bottom={logoBottom} />
       <SectionFoundation
         className="invert"

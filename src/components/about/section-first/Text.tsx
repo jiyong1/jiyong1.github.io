@@ -12,6 +12,15 @@ const Text = ({ styleArr }: ITextProps): JSX.Element => {
         <p className="text-item base-top" style={styleArr[0]}>
           안녕하세요.
         </p>
+        <p className="text-item text-bold text-mid" style={styleArr[1]}>
+          프론트엔드
+        </p>
+        <p className="text-item text-bold text-mid" style={styleArr[2]}>
+          일단 부딪쳐보는
+        </p>
+        <p className="text-item text-bold text-mid" style={styleArr[3]}>
+          소통을 중요하게 생각하는
+        </p>
         <p className="text-item base-bottom" style={styleArr[0]}>
           <span className="text-bold">개발자 김지용</span>입니다.
         </p>
@@ -40,8 +49,11 @@ const TextWrapper = styled.div`
   .text-bold {
     font-weight: bold;
   }
-  .text-item {
-    opacity: 0;
+  .text-mid {
+    position: absolute;
+    top: 50%;
+    left: 5vw;
+    transform: translateY(-50%);
   }
 `;
 

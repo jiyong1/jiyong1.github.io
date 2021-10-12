@@ -12,7 +12,7 @@ const sectionFirstStyle: IStyleObjType[] = [
     },
     start: 0,
     midRange: [2, 13],
-    end: 15,
+    end: 17,
   },
   {
     styleMaxObj: {
@@ -25,7 +25,7 @@ const sectionFirstStyle: IStyleObjType[] = [
       },
     },
     start: 0,
-    midRange: [2, 13],
+    midRange: [2, 14],
     end: 15,
   },
   {
@@ -39,7 +39,7 @@ const sectionFirstStyle: IStyleObjType[] = [
       },
     },
     start: 0,
-    midRange: [2, 13],
+    midRange: [2, 14],
     end: 15,
   },
   {
@@ -66,8 +66,15 @@ const sectionFirstStyle: IStyleObjType[] = [
         max: 1,
         alternate: true,
       },
+      transform: {
+        max: 10,
+        unit: (value: number): string => {
+          return `translateY(${-50 - value}%)`;
+        },
+        alternate: false,
+      },
     },
-    start: 3,
+    start: 4,
     end: 7,
     midRange: [5, 6],
   },
@@ -76,6 +83,13 @@ const sectionFirstStyle: IStyleObjType[] = [
       opacity: {
         max: 1,
         alternate: true,
+      },
+      transform: {
+        max: 10,
+        unit: (value: number): string => {
+          return `translateY(${-50 - value}%)`;
+        },
+        alternate: false,
       },
     },
     start: 7,
@@ -87,6 +101,13 @@ const sectionFirstStyle: IStyleObjType[] = [
       opacity: {
         max: 1,
         alternate: true,
+      },
+      transform: {
+        max: 10,
+        unit: (value: number): string => {
+          return `translateY(${-50 - value}%)`;
+        },
+        alternate: false,
       },
     },
     start: 10,

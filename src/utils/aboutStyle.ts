@@ -44,7 +44,7 @@ export default function stylePercentGenerate(
       } else if (currentPer > 0 && currentPer <= 1) {
         // change percentage
         if (currentMidRange) {
-          value = getValueByRange(max, currentPer, currentEndPer, currentMidRange, alternate);
+          value = getValueByRange(max, percentage, currentStartPer, currentEndPer, currentMidRange, alternate);
         } else {
           value = currentPer * max;
         }
@@ -61,21 +61,23 @@ export default function stylePercentGenerate(
 
 function getValueByRange(
   max: number,
-  currentPer: number,
+  percentage: number,
+  currentStartPer: number,
   currentEndPer: number,
   range: [number, number],
   alternate?: boolean,
 ): number {
+  const per = percentage / 100;
   const midMax = alternate ? max : max / 2;
   let rv = 0;
-  if (range && currentPer >= range[0] && currentPer <= range[1]) {
+  if (per >= range[0] && per <= range[1]) {
     rv = midMax;
-  } else if (range && currentPer < range[0]) {
-    rv = midMax * (currentPer / range[0]);
+  } else if (per < range[0]) {
+    rv = midMax * ((per - currentStartPer / 100) / (range[0] - currentStartPer / 100));
   } else {
     rv = alternate
-      ? midMax * (1 - (currentPer - range[1]) / (currentEndPer / 100 - range[1]))
-      : midMax * ((currentPer - range[1]) / (currentEndPer / 100 - range[1])) + max / 2;
+      ? midMax * (1 - (per - range[1]) / (currentEndPer / 100 - range[1]))
+      : midMax * ((per - range[1]) / (currentEndPer / 100 - range[1])) + max / 2;
   }
   return rv;
 }
