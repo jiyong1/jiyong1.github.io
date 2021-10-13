@@ -16,7 +16,17 @@ const About = (): JSX.Element => {
       <SectionFirst />
       <SectionSecond />
       <SectionThird />
-      <div style={{ height: '100vh' }}></div>
+      <p
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+          fontSize: '2rem',
+        }}
+      >
+        감사합니다 😊
+      </p>
     </BaseLayout>
   );
 };
