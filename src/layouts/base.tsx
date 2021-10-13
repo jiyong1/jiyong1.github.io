@@ -7,7 +7,6 @@ import styled, { ThemeProvider } from 'styled-components';
 import favicon from '@images/favicon.ico';
 import TopNav from '@components/topnav';
 import Footer from '@components/Footer';
-import SNB from '@components/SNB';
 import theme from '../style/theme';
 
 interface IThemeProps {
@@ -52,7 +51,6 @@ const BaseLayout = ({ children, title, maxWidth = '1024px' }: IBaseLayoutProps):
               <>
                 <TopNav theme={theme} toggleTheme={toggleTheme} />
                 <Content style={{ maxWidth }}>{children}</Content>
-                <SNB />
                 <Footer />
               </>
             );

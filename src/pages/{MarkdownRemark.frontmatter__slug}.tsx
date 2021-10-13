@@ -3,6 +3,7 @@ import { graphql, PageProps } from 'gatsby';
 import styled from 'styled-components';
 
 import BaseLayout from '@layouts/base';
+import SNB from '@components/SNB';
 
 interface MarkdownPageProps extends PageProps {
   data: {
@@ -30,6 +31,7 @@ export default function Template({ data }: MarkdownPageProps): JSX.Element {
           <PostContent className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
         </Post>
       </div>
+      <SNB />
     </BaseLayout>
   );
 }

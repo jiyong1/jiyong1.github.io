@@ -89,6 +89,12 @@ const GlobalStyle = createGlobalStyle`
     left: 0;
     z-index: 8;
   }
+  #side__nav--bar {
+    position: fixed;
+    bottom: 5vw;
+    right: 5vw;
+    z-index: 7;
+  }
   body.light {
     background-color: white;
     color: black;
