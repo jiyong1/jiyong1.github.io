@@ -4,12 +4,13 @@ import styled from 'styled-components';
 import ObserverSection from '../Section';
 import StickyHeader from '../StickyHeader';
 import SkillSlider from './SkillSlider';
+import SkillPercentage from './SkillPercentage';
 import slideStyle from './style';
 
 import useRFA from '@hooks/useRFA';
 import stylePercentGenerate from '@utils/aboutStyle';
 
-import { skillsFirst, skillsSecond } from './text';
+import { skillsFirst, skillsSecond, skillGraph } from './text';
 
 const SectionThird = (): JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -56,6 +57,14 @@ const SectionThird = (): JSX.Element => {
         <div className="shadow slider-shadow-right"></div>
         <div className="shadow slider-shadow-left"></div>
       </SliderWrapper>
+      <SkillPerRoot className="skill-percentage-root">
+        <p className="tmi">
+          <span>100%</span>는 미래의 저를 위해 아낍니다..😂
+        </p>
+        {skillGraph.map((skill) => {
+          return <SkillPercentage key={`skill-graph-${skill.name}`} skill={skill} />;
+        })}
+      </SkillPerRoot>
     </ObserverSection>
   );
 };
@@ -80,6 +89,16 @@ const SliderWrapper = styled.div`
   .slider-shadow-left {
     left: 0;
     background-image: linear-gradient(90deg, #333, rgba(51, 51, 51, 0));
+  }
+`;
+const SkillPerRoot = styled.div`
+  padding: 1rem;
+  .tmi {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 10vh;
+    text-align: center;
+    color: #777;
   }
 `;
 
