@@ -1,8 +1,6 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import useObserver from '@hooks/useObserver';
-
 import { browserCheck } from '@utils/browser';
 
 const Name = (): JSX.Element => {
@@ -14,12 +12,14 @@ const Name = (): JSX.Element => {
     setDisplay(entries[0].isIntersecting);
   }, []);
 
-  useObserver(nameRef, displayHandler, { threshold: 0 });
-
   useEffect(() => {
     const browser = browserCheck();
     setIsSafari(browser === 'Safari');
-  }, []);
+    if (nameRef.current) {
+      const observer = new IntersectionObserver(displayHandler, { threshold: 0 });
+      observer.observe(nameRef.current);
+    }
+  }, [nameRef]);
 
   return (
     <NameSection ref={nameRef}>

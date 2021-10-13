@@ -14,7 +14,7 @@ const About = (): JSX.Element => {
       <Name />
       <SectionFirst />
       <SectionSecond />
-      <div style={{ height: '200vh', border: '1px solid red' }}></div>
+      <div style={{ height: '100vh' }}></div>
     </BaseLayout>
   );
 };

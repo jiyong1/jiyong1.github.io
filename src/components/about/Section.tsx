@@ -4,11 +4,12 @@ import styled from 'styled-components';
 interface IAboutSectionProps {
   children: JSX.Element[] | JSX.Element | string;
   style?: React.CSSProperties;
+  id?: string;
 }
 
-const ObserverSection = forwardRef<HTMLElement, IAboutSectionProps>(({ children, style }, ref) => {
+const ObserverSection = forwardRef<HTMLElement, IAboutSectionProps>(({ children, style, id }, ref) => {
   return (
-    <Section ref={ref} style={style}>
+    <Section id={id} ref={ref} style={style}>
       {children}
     </Section>
   );

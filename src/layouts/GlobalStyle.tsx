@@ -125,9 +125,15 @@ const GlobalStyle = createGlobalStyle`
     .brown-color {
       color: var(--brown-dark);
     }
+    .color-soft {
+      color: var(--soft-black);
+    }
     .bg-brown {
       background-color: var(--brown-dark);
       color: white;
+    }
+    .brown-border {
+      border-color: var(--brown-dark);
     }
     a:hover {
       color: var(--brown-dark);
@@ -166,6 +172,12 @@ const GlobalStyle = createGlobalStyle`
     }
     .brown-color {
       color: var(--brown-light);
+    }
+    .brown-border {
+      border-color: var(--brown-light);
+    }
+    .color-soft {
+      color: var(--soft-white);
     }
     .bg-brown {
       background-color: var(--brown-light);

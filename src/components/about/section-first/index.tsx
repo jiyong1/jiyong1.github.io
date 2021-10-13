@@ -7,7 +7,6 @@ import Logo from './Logo';
 import Text from './Text';
 
 import useRFA from '@hooks/useRFA';
-import useObserver from '@hooks/useObserver';
 
 import stylePercentGenerate from '@utils/aboutStyle';
 import sectionFirstStyle from './style';
@@ -32,7 +31,12 @@ const SectionFirst = (): JSX.Element => {
     }
   }, []);
 
-  useObserver(sectionRef, observerCallback, options);
+  useEffect(() => {
+    if (sectionRef.current) {
+      const observer = new IntersectionObserver(observerCallback, options);
+      observer.observe(sectionRef.current);
+    }
+  }, [sectionRef]);
 
   const scrollHandler = useCallback(() => {
     if (!sectionRef.current) return;

@@ -26,6 +26,7 @@ const StickyHeaderWrapper = styled.h2`
 
   &.header-fixed {
     position: sticky;
+    z-index: 6;
     width: 100%;
     left: 0;
     top: 0.6rem;
