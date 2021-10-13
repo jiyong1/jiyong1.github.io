@@ -6,6 +6,7 @@ import ScrollTop from '@components/about/ScrollTop';
 import Name from '@components/about/Name';
 import SectionFirst from '@components/about/section-first';
 import SectionSecond from '@components/about/section-second';
+import SectionThird from '@components/about/section-third';
 
 const About = (): JSX.Element => {
   return (
@@ -14,6 +15,7 @@ const About = (): JSX.Element => {
       <Name />
       <SectionFirst />
       <SectionSecond />
+      <SectionThird />
       <div style={{ height: '100vh' }}></div>
     </BaseLayout>
   );

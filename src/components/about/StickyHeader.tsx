@@ -5,11 +5,16 @@ interface IStickyHeaderProps {
   header: string;
   style?: React.CSSProperties;
   fixed?: boolean;
+  soft?: boolean;
 }
 
-const StickyHeader = forwardRef<HTMLHeadingElement, IStickyHeaderProps>(({ header, style, fixed }, ref) => {
+const StickyHeader = forwardRef<HTMLHeadingElement, IStickyHeaderProps>(({ header, style, fixed, soft }, ref) => {
   return (
-    <StickyHeaderWrapper className={fixed ? 'bg-soft header-fixed' : ''} ref={ref} style={style}>
+    <StickyHeaderWrapper
+      className={(fixed ? 'header-fixed' : '') + (fixed && soft ? ' bg-soft' : ' bg-normal')}
+      ref={ref}
+      style={style}
+    >
       {header}
     </StickyHeaderWrapper>
   );
