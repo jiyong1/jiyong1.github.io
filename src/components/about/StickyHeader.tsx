@@ -24,7 +24,7 @@ StickyHeader.displayName = 'StickyHeader';
 
 const StickyHeaderWrapper = styled.h2`
   display: inline-block;
-  font-size: 6vw;
+  font-size: min(6vw, 70px);
   padding: 1rem;
   font-weight: bold;
   transform-origin: left;
