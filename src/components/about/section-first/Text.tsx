@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 interface ITextProps {
   styleArr: React.CSSProperties[];
+  bottom?: boolean;
 }
 
-const Text = ({ styleArr }: ITextProps): JSX.Element => {
+const Text = ({ styleArr, bottom }: ITextProps): JSX.Element => {
   return (
-    <TextWrapper className={styleArr[0] ? 'text-display' : ''}>
+    <TextWrapper className={styleArr[0] && !bottom ? 'text-display' : ''}>
       <div className="invert-color">
         <p className="text-item text-light base-top" style={styleArr[0]}>
           안녕하세요.

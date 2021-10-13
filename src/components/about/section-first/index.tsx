@@ -73,7 +73,7 @@ const SectionFirst = (): JSX.Element => {
   }, [styleArr]);
 
   return (
-    <ObserverSection ref={sectionRef} height="800vh" opacity={1}>
+    <ObserverSection ref={sectionRef} style={{ height: '800vh' }}>
       <Logo style={!logoBottom && event ? styleArr[0] : {}} bottom={logoBottom} />
       <SectionFoundation
         className="invert"
@@ -81,7 +81,7 @@ const SectionFirst = (): JSX.Element => {
           ...styleArr[1],
         }}
       />
-      <Text styleArr={textStyle} />
+      <Text styleArr={textStyle} bottom={logoBottom} />
     </ObserverSection>
   );
 };

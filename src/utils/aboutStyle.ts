@@ -46,7 +46,11 @@ export default function stylePercentGenerate(
         if (currentMidRange) {
           value = getValueByRange(max, percentage, currentStartPer, currentEndPer, currentMidRange, alternate);
         } else {
-          value = currentPer * max;
+          if (alternate) {
+            value = currentPer < 0.5 ? currentPer * max * 2 : (1 - currentPer) * max * 2;
+          } else {
+            value = currentPer * max;
+          }
         }
       }
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment

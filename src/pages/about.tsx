@@ -5,7 +5,7 @@ import BaseLayout from '@layouts/base';
 import ScrollTop from '@components/about/ScrollTop';
 import Name from '@components/about/Name';
 import SectionFirst from '@components/about/section-first';
-// import SectionSecond from '@components/about/section-second';
+import SectionSecond from '@components/about/section-second';
 
 const About = (): JSX.Element => {
   return (
@@ -13,7 +13,8 @@ const About = (): JSX.Element => {
       <ScrollTop />
       <Name />
       <SectionFirst />
-      <div style={{ height: '300vh' }}></div>
+      <SectionSecond />
+      <div style={{ height: '200vh', border: '1px solid red' }}></div>
     </BaseLayout>
   );
 };
