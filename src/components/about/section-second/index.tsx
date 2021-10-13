@@ -80,7 +80,8 @@ const SectionSecond = (): JSX.Element => {
     entries.forEach((entry) => {
       const id = expParseIdx(entry.target.id);
       if (id !== undefined) {
-        const nextDisplay = entry.isIntersecting && entry.intersectionRatio > 0.6;
+        const nextDisplay =
+          (entry.isIntersecting && entry.intersectionRatio > 0.6) || entry.boundingClientRect.top < 10;
         if (id === 0) {
           setEfd(nextDisplay);
         } else if (id === 1) {
