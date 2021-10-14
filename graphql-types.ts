@@ -3886,6 +3886,16 @@ export type Unnamed_1_Query = {
   allMarkdownRemark: { group: Array<Pick<MarkdownRemarkGroupConnection, 'fieldValue'>> };
 };
 
+export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never }>;
+
+export type Unnamed_2_Query = {
+  file?: Maybe<{
+    childImageSharp?: Maybe<{
+      fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'sizes' | 'src' | 'srcSet' | 'originalImg'>>;
+    }>;
+  }>;
+};
+
 export type AllCategoriesQueryVariables = Exact<{ [key: string]: never }>;
 
 export type AllCategoriesQuery = {
@@ -3906,11 +3916,11 @@ export type AllCategoriesQuery = {
   };
 };
 
-export type Unnamed_2_QueryVariables = Exact<{
+export type Unnamed_3_QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
-export type Unnamed_2_Query = {
+export type Unnamed_3_Query = {
   markdownRemark?: Maybe<
     Pick<MarkdownRemark, 'html'> & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'slug' | 'title'>> }
   >;

@@ -1,11 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import BaseLayout from '@layouts/base';
+
+import Introduce from '@components/home/Introduce';
 
 const Index = (): JSX.Element => {
   return (
-    <BaseLayout title="홈">
-      <h1>hihi</h1>
+    <BaseLayout maxWidth="100%" title="홈">
+      <Introduce />
     </BaseLayout>
   );
 };
