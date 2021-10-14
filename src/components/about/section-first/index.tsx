@@ -13,7 +13,7 @@ import sectionFirstStyle from './style';
 
 const SectionFirst = (): JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [event, setEvent] = useState<boolean>(false);
+  const [event, setEvent] = useState<boolean>(true);
   const [logoBottom, setLogoBottom] = useState<boolean>(false);
   const [percentage, setPercentage] = useState<number>(0);
 
@@ -65,7 +65,7 @@ const SectionFirst = (): JSX.Element => {
         window.removeEventListener('scroll', scrollRFA, { passive: true } as EventListenerOptions);
       };
     }
-  }, [event, scrollRFA]);
+  }, [event]);
 
   const styleArr = useMemo(() => {
     if (!event) return [];
