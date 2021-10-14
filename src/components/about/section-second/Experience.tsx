@@ -36,14 +36,14 @@ const Experience = forwardRef<HTMLLIElement, IExperienceProps>(({ experience, le
                   <li key={content} className="color-soft">
                     <p>{content}</p>
                     {github ? (
-                      <a href={github}>
+                      <a target="_blank" href={github} rel="noreferrer">
                         <i className="fab fa-github"></i>
                       </a>
                     ) : (
                       <></>
                     )}
                     {youtube ? (
-                      <a href={youtube}>
+                      <a target="_blank" href={youtube} rel="noreferrer">
                         <i className="fab fa-youtube"></i>
                       </a>
                     ) : (
