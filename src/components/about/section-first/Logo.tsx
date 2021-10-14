@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import logo from '@images/logo.png';
 
-const Logo = ({ style, bottom }: { style: React.CSSProperties; bottom: boolean }): JSX.Element => {
+const Logo = ({ fixed, bottom }: { fixed: boolean; bottom: boolean }): JSX.Element => {
   return (
-    <LogoWrapper className={bottom ? 'bottom' : 'top'} style={style}>
+    <LogoWrapper className={bottom ? 'bottom' : 'top'} style={fixed ? { position: 'fixed' } : {}}>
       <img src={logo} alt="로고 이미지" />
     </LogoWrapper>
   );

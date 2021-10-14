@@ -18,9 +18,10 @@ interface IBaseLayoutProps {
   children: React.ReactNode;
   title?: string;
   maxWidth?: string;
+  scrollBar?: boolean;
 }
 
-const BaseLayout = ({ children, title, maxWidth = '1024px' }: IBaseLayoutProps): JSX.Element => {
+const BaseLayout = ({ children, title, maxWidth = '1024px', scrollBar = true }: IBaseLayoutProps): JSX.Element => {
   useEffect(() => {
     if (!localStorage.getItem('theme')) {
       const isDark = window.matchMedia(`(prefers-color-scheme: dark)`).matches;
@@ -43,6 +44,11 @@ const BaseLayout = ({ children, title, maxWidth = '1024px' }: IBaseLayoutProps):
         />
         <script src="https://kit.fontawesome.com/63e1d65e2b.js" crossOrigin="anonymous"></script>
         <link rel="icon" href={favicon} />
+        {!scrollBar ? (
+          <style>{`body{-ms-overflow-style: none; scrollbar-width: none;} body::-webkit-scrollbar{display: none}`}</style>
+        ) : (
+          ''
+        )}
       </Helmet>
       <ThemeProvider theme={theme}>
         <ThemeToggler>

@@ -12,7 +12,7 @@ import SectionThird from '@components/about/section-third';
 
 const About = (): JSX.Element => {
   return (
-    <BaseLayout maxWidth={'100%'} title="About">
+    <BaseLayout maxWidth={'100%'} title="About" scrollBar={false}>
       <ScrollTop />
       <Name />
       <SectionFirst />

@@ -2,20 +2,6 @@ import { IStyleObjType } from '@utils/aboutStyle';
 const sectionFirstStyle: IStyleObjType[] = [
   {
     styleMaxObj: {
-      position: {
-        max: 10,
-        unit: (value: number): string => {
-          if (value > 0) return 'fixed';
-          else return 'static';
-        },
-      },
-    },
-    start: 0,
-    midRange: [2, 13],
-    end: 17,
-  },
-  {
-    styleMaxObj: {
       transform: {
         max: 100,
         unit: (value: number): string => {
