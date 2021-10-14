@@ -18,12 +18,12 @@ const SectionFirst = (): JSX.Element => {
   const [percentage, setPercentage] = useState<number>(0);
 
   const options = useMemo(() => {
-    const threshold = [0, 1 / 8];
+    const threshold = [0, 1 / 16, 1 / 8];
     return { threshold };
   }, []);
 
   const observerCallback = useCallback(([entry]: IntersectionObserverEntry[], obs: IntersectionObserver) => {
-    if (entry.isIntersecting && entry.boundingClientRect.top <= 0) {
+    if (entry.isIntersecting && entry.boundingClientRect.top <= 10) {
       setEvent(true);
     } else {
       setLogoBottom(false);
