@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import GlobalStyle from './GlobalStyle';
 import { Helmet } from 'react-helmet';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
@@ -22,7 +22,7 @@ interface IBaseLayoutProps {
 }
 
 const BaseLayout = ({ children, title, maxWidth = '1024px', scrollBar = true }: IBaseLayoutProps): JSX.Element => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!localStorage.getItem('theme')) {
       const isDark = window.matchMedia(`(prefers-color-scheme: dark)`).matches;
       const darkmode = isDark ? 'dark' : 'light';

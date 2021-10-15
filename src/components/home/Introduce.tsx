@@ -58,7 +58,7 @@ const Introduce = (): JSX.Element => {
 
 const IntroduceSection = styled.section`
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 100px auto;
   .introduce-grid-container {
     display: grid;
     padding: 1rem;

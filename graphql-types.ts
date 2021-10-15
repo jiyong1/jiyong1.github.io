@@ -3896,6 +3896,16 @@ export type Unnamed_2_Query = {
   }>;
 };
 
+export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never }>;
+
+export type Unnamed_3_Query = {
+  file?: Maybe<{
+    childImageSharp?: Maybe<{
+      fixed?: Maybe<Pick<ImageSharpFixed, 'base64' | 'aspectRatio' | 'width' | 'height' | 'src' | 'srcSet'>>;
+    }>;
+  }>;
+};
+
 export type AllCategoriesQueryVariables = Exact<{ [key: string]: never }>;
 
 export type AllCategoriesQuery = {
@@ -3916,11 +3926,11 @@ export type AllCategoriesQuery = {
   };
 };
 
-export type Unnamed_3_QueryVariables = Exact<{
+export type Unnamed_4_QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
-export type Unnamed_3_Query = {
+export type Unnamed_4_Query = {
   markdownRemark?: Maybe<
     Pick<MarkdownRemark, 'html'> & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'slug' | 'title'>> }
   >;
