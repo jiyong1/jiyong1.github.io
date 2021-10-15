@@ -9,6 +9,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-dark-mode',
     'gatsby-plugin-portal',
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-graphql-codegen',
@@ -21,6 +22,10 @@ module.exports = {
             options: {
               classMap: {
                 link: 'brown-color',
+                blockquote: 'brown-border bg-soft',
+                tr: 'soft-border',
+                td: 'soft-border',
+                table: 'bg-soft',
               },
             },
           },

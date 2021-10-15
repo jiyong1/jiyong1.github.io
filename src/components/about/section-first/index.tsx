@@ -36,6 +36,10 @@ const SectionFirst = (): JSX.Element => {
     if (sectionRef.current) {
       const observer = new IntersectionObserver(observerCallback, options);
       observer.observe(sectionRef.current);
+
+      return () => {
+        observer.disconnect();
+      };
     }
   }, [sectionRef]);
 

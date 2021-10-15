@@ -18,6 +18,10 @@ const Name = (): JSX.Element => {
     if (nameRef.current) {
       const observer = new IntersectionObserver(displayHandler, { threshold: 0 });
       observer.observe(nameRef.current);
+
+      return () => {
+        observer.disconnect();
+      };
     }
   }, [nameRef]);
 

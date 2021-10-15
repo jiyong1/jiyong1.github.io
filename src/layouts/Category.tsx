@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import BaseLayout from './base';
 import CategoryPick from '@components/CategoryPick';
@@ -41,17 +41,15 @@ function Category<T extends DataType>({ pageContext, data }: Props<T>): JSX.Elem
             )
               return <></>;
             const { title, slug, description, date, featuredImage, categories } = node.frontmatter;
-            if (!featuredImage.childImageSharp || !featuredImage.childImageSharp.fluid) return <></>;
-            const { fluid } = featuredImage.childImageSharp;
+
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            const image = getImage(featuredImage);
+            if (!image) return <></>;
             return (
               <CategoryContentItem key={slug} className="bg-soft">
                 <Link to={slug}>
-                  <Img
-                    fluid={fluid}
-                    className="item-image-wrapper"
-                    style={{ zIndex: 1, borderRadius: '6px' }}
-                    imgStyle={{ transition: '0.4s' }}
-                  />
+                  <GatsbyImage image={image} alt={title} className={'item-image-wrapper'} imgClassName="bg-normal" />
                   <div className="item-info">
                     <p className="item-title item-text">{title}</p>
                     <p className="item-description item-text">{description}</p>
@@ -93,10 +91,16 @@ const CategoryWrapper = styled.div`
 
 const CategoryContentItem = styled.li`
   width: 100%;
-  margin: 1rem 0;
+  margin: 2rem 0;
   border-radius: 10px;
   padding: 0.5rem;
   line-height: 1.5em;
+  .item-image-wrapper {
+    border-radius: 6px;
+    img {
+      transition: 0.4s;
+    }
+  }
   a {
     display: grid;
     grid-template-columns: 1fr 4fr;

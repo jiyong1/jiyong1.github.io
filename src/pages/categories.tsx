@@ -30,12 +30,14 @@ export const pageQuery = graphql`
             categories
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 400) {
-                  src
-                  srcSet
-                  aspectRatio
-                  sizes
-                }
+                gatsbyImageData(
+                  layout: FULL_WIDTH
+                  aspectRatio: 1.5
+                  transformOptions: { fit: CONTAIN }
+                  placeholder: NONE
+                  formats: [AUTO, WEBP, AVIF]
+                  backgroundColor: "transparent"
+                )
               }
             }
           }

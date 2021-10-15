@@ -135,6 +135,9 @@ const GlobalStyle = createGlobalStyle`
     .brown-border {
       border-color: var(--brown-dark);
     }
+    .soft-border {
+      border-color: var(--bg-black);
+    }
     a:hover {
       color: var(--brown-dark);
     }
@@ -175,6 +178,9 @@ const GlobalStyle = createGlobalStyle`
     }
     .brown-border {
       border-color: var(--brown-light);
+    }
+    .soft-border {
+      border-color: var(--soft-white);
     }
     .color-soft {
       color: var(--soft-white);

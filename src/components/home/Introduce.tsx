@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import BubbleLink from '@components/BubbleLink';
 
@@ -10,27 +10,18 @@ const Introduce = (): JSX.Element => {
     query {
       file(relativePath: { eq: "jiyong.png" }) {
         childImageSharp {
-          fluid(maxWidth: 400, maxHeight: 400) {
-            base64
-            aspectRatio
-            sizes
-            src
-            srcSet
-            originalImg
-          }
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
         }
       }
     }
   `);
+  const jiyongImage = getImage(jiyong.file);
+  if (!jiyongImage) return <></>;
 
   return (
     <IntroduceSection>
       <div className="introduce-grid-container">
-        <Img
-          className="bg-soft fluid-image"
-          style={{ borderRadius: '50%' }}
-          fluid={jiyong.file.childImageSharp.fluid}
-        />
+        <GatsbyImage className="fluid-image bg-soft" alt="김지용 사진" image={jiyongImage} />
         <div className="introduce-contents">
           <div className="introduce-name">
             <p className="nick-name">@seventwo</p>
@@ -64,6 +55,9 @@ const IntroduceSection = styled.section`
     padding: 1rem;
     grid-template-columns: 1fr 2.5fr;
     align-items: center;
+    .fluid-image {
+      border-radius: 50%;
+    }
   }
 
   .introduce-contents {
@@ -99,10 +93,6 @@ const IntroduceSection = styled.section`
   }
 
   @media screen and (max-width: ${({ theme }) => theme.size.medium}) {
-    .fluid-image {
-      max-width: 400px;
-      margin: 0 auto;
-    }
     .introduce-description {
       text-align: center;
     }

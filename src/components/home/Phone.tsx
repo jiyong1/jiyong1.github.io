@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import phoneScroll from '@images/phonescroll.gif';
@@ -10,18 +10,14 @@ const Phone = (): JSX.Element => {
     query {
       file(relativePath: { eq: "phone.png" }) {
         childImageSharp {
-          fixed(width: 200, height: 400) {
-            base64
-            aspectRatio
-            width
-            height
-            src
-            srcSet
-          }
+          gatsbyImageData(layout: FIXED, width: 200, height: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
         }
       }
     }
   `);
+
+  const phoneImg = getImage(phone.file);
+  if (!phoneImg) return <></>;
 
   // width 188
   // left 8
@@ -29,7 +25,7 @@ const Phone = (): JSX.Element => {
   // height: 382
   return (
     <PhoneWrapper>
-      <Img style={{ position: 'relative', zIndex: 2 }} fixed={phone.file.childImageSharp.fixed}></Img>
+      <GatsbyImage style={{ position: 'relative', zIndex: 2 }} image={phoneImg} alt="핸드폰 레이아웃"></GatsbyImage>
       <div className="gif-container">
         <img src={phoneScroll} alt={'모바일 화면에서 스크롤'} />
       </div>
