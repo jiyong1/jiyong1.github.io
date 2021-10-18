@@ -56,6 +56,7 @@ const IntroduceSection = styled.section`
     grid-template-columns: 1fr 2.5fr;
     align-items: center;
     .fluid-image {
+      overflow: hidden;
       border-radius: 50%;
     }
   }
@@ -98,6 +99,11 @@ const IntroduceSection = styled.section`
     }
     .introduce-grid-container {
       display: block;
+
+      .fluid-image {
+        width: 50%;
+        margin: 0 auto;
+      }
 
       .introduce-name {
         justify-content: center;

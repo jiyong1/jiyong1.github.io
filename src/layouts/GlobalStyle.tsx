@@ -138,7 +138,7 @@ const GlobalStyle = createGlobalStyle`
     .soft-border {
       border-color: var(--bg-black);
     }
-    a:hover {
+    a:not(.not-hover):hover {
       color: var(--brown-dark);
     }
     .stroke-invert {
@@ -190,7 +190,7 @@ const GlobalStyle = createGlobalStyle`
       color: black;
     }
 
-    a:hover {
+    a:not(.not-hover):hover {
       color: var(--brown-light);
     }
     .stroke-brown {
