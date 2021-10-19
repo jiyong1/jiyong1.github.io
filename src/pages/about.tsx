@@ -12,7 +12,7 @@ import SectionThird from '@components/about/section-third';
 
 const About = (): JSX.Element => {
   return (
-    <BaseLayout maxWidth={'100%'} title="About" scrollBar={false}>
+    <BaseLayout maxWidth={'100%'} title="About" scrollBar={false} description="seventwo를 interactive하게 표현합니다.">
       <ScrollTop />
       <Name />
       <SectionFirst />

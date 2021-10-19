@@ -1,10 +1,9 @@
 import React, { useLayoutEffect } from 'react';
 import GlobalStyle from './GlobalStyle';
-import { Helmet } from 'react-helmet';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import styled, { ThemeProvider } from 'styled-components';
 
-import favicon from '@images/favicon.ico';
+import SEO from '@components/SEO';
 import TopNav from '@components/topnav';
 import Footer from '@components/Footer';
 import theme from '../style/theme';
@@ -19,9 +18,20 @@ interface IBaseLayoutProps {
   title?: string;
   maxWidth?: string;
   scrollBar?: boolean;
+  description?: string;
+  ogImg?: string;
+  date?: string;
 }
 
-const BaseLayout = ({ children, title, maxWidth = '1024px', scrollBar = true }: IBaseLayoutProps): JSX.Element => {
+const BaseLayout = ({
+  children,
+  title,
+  ogImg,
+  description,
+  scrollBar,
+  date,
+  maxWidth = '1024px',
+}: IBaseLayoutProps): JSX.Element => {
   useLayoutEffect(() => {
     if (!localStorage.getItem('theme')) {
       const isDark = window.matchMedia(`(prefers-color-scheme: dark)`).matches;
@@ -33,23 +43,7 @@ const BaseLayout = ({ children, title, maxWidth = '1024px', scrollBar = true }: 
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{title && title.length ? `${title} | seventwo devlog` : 'seventwo devlog'}</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
-        <script src="https://kit.fontawesome.com/63e1d65e2b.js" crossOrigin="anonymous"></script>
-        <link rel="icon" href={favicon} />
-        {!scrollBar ? (
-          <style>{`body{-ms-overflow-style: none; scrollbar-width: none;} body::-webkit-scrollbar{display: none}`}</style>
-        ) : (
-          ''
-        )}
-      </Helmet>
+      <SEO title={title} scrollBar={scrollBar} ogImg={ogImg} description={description} date={date} />
       <ThemeProvider theme={theme}>
         <ThemeToggler>
           {({ theme, toggleTheme }: IThemeProps) => {

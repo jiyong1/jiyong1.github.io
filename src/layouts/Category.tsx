@@ -20,7 +20,11 @@ function Category<T extends DataType>({ pageContext, data }: Props<T>): JSX.Elem
   const { edges, totalCount } = data.allMarkdownRemark;
 
   return (
-    <BaseLayout title={category ? category : '전체 게시물'} maxWidth={'100%'}>
+    <BaseLayout
+      title={category ? category : '전체 게시물'}
+      maxWidth={'100%'}
+      description={category ? `${category} 게시물` : '전체 게시물'}
+    >
       <CategoryWrapper>
         <CategoryPick />
         <CategoryHeader>

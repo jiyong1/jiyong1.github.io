@@ -11,6 +11,7 @@ interface MarkdownPageProps extends PageProps {
       frontmatter: {
         title: string;
         date: string;
+        description: string;
       };
       html: string;
     };
@@ -21,7 +22,12 @@ export default function Template({ data }: MarkdownPageProps): JSX.Element {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
   return (
-    <BaseLayout maxWidth="726px" title={frontmatter.title}>
+    <BaseLayout
+      maxWidth="726px"
+      title={frontmatter.title}
+      description={frontmatter.description}
+      date={new Date(frontmatter.date).toString()}
+    >
       <div className="blog-post-container">
         <Post className="blog-post">
           <div className="post-info">
@@ -123,6 +129,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        description
       }
     }
   }

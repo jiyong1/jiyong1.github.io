@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://jiyong1.github.io',
-    title: 'seventwo devlog',
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-typescript',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
@@ -13,6 +13,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-graphql-codegen',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: 'gatsby-transformer-remark',
       options: {

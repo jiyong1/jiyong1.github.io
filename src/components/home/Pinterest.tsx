@@ -66,7 +66,7 @@ const Pinterest = (): JSX.Element => {
     () => {
       setResize(false);
     },
-    400,
+    100,
     () => {
       setResize(true);
     },
