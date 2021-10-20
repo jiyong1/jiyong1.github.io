@@ -51,6 +51,7 @@ const SEO = ({
       ) : (
         ''
       )}
+      <meta name="google-site-verification" content="COHhIoFeM-JWk4uSElcrWwkBOnI5r4KaBiqi79Pz4aw" />
     </Helmet>
   );
 };
