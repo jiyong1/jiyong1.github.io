@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import BaseLayout from '@layouts/base';
 import SNB from '@components/SNB';
+import Utterances from '@components/Utterances';
 
 interface MarkdownPageProps extends PageProps {
   data: {
@@ -38,6 +39,7 @@ export default function Template({ data }: MarkdownPageProps): JSX.Element {
         </Post>
       </div>
       <SNB />
+      <Utterances repo="jiyong1/jiyong1.github.io" theme="preferred-color-scheme" />
     </BaseLayout>
   );
 }
