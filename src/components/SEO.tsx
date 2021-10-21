@@ -32,7 +32,7 @@ const SEO = ({
           "@context": "http://schema.org",
           "@type": "BlogPosting",
           "datePublished": "${date}",
-          "dateModified": "${date}",
+          "dateModified": "${date}"
         }`}
       </script>
       <meta property="og:title" content={helmetTitle} />
