@@ -19,7 +19,11 @@ const PinterestItem = forwardRef<HTMLLIElement, ItemProps>(({ tl = [0, 0], data 
     <Item ref={ref} style={{ top: `${tl[0]}px`, left: `${tl[1]}px` }}>
       <div className="newspeed-item bg-soft">
         <Link to={data.slug}>
-          {image ? <GatsbyImage className="newspeed-image-wrapper" image={image} alt={data.title} /> : <></>}
+          {image ? (
+            <GatsbyImage className="newspeed-image-wrapper" image={image} alt={data.title} imgClassName="bg-normal" />
+          ) : (
+            <></>
+          )}
           <div>
             <p className="newspeed-title">{data.title}</p>
             <p className="newspeed-date">{data.date}</p>
