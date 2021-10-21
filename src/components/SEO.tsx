@@ -29,10 +29,10 @@ const SEO = ({
       <meta name="article:published_time" content={date} />
       <script type="application/ld+json">
         {`{
-          '@context': 'http://schema.org',
-          '@type': 'BlogPosting',
-          datePublished: ${date},
-          dateModified: ${date},
+          "@context": "http://schema.org",
+          "@type": "BlogPosting",
+          "datePublished": "${date}",
+          "dateModified": "${date}",
         }`}
       </script>
       <meta property="og:title" content={helmetTitle} />
