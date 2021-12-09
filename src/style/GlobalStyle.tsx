@@ -93,7 +93,7 @@ const GlobalStyle = createGlobalStyle`
     position: fixed;
     bottom: 5vw;
     right: 5vw;
-    z-index: 7;
+    z-index: 11;
   }
   body.light {
     background-color: white;

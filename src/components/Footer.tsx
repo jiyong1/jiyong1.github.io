@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Footer = (): JSX.Element => {
-  return <FooterWrapper>© seventwo | Powered by Github Pages</FooterWrapper>;
+  return <FooterWrapper className="bg-normal">© seventwo | Powered by Github Pages</FooterWrapper>;
 };
 
 const FooterWrapper = styled.footer`
@@ -13,6 +13,8 @@ const FooterWrapper = styled.footer`
   color: #777;
   margin-top: 100px;
   border-top: 1px solid #bbb;
+  position: relative;
+  z-index: 10;
 `;
 
 export default Footer;
