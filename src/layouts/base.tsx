@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import GlobalStyle from './GlobalStyle';
+import GlobalStyle from '../style/GlobalStyle';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import styled, { ThemeProvider } from 'styled-components';
 
