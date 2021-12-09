@@ -125,7 +125,7 @@ const SectionSecond = (): JSX.Element => {
 
   return (
     <ObserverSection id="second--section--root" ref={secondSectionRef} style={{ marginTop: '50vh' }}>
-      <StickyHeader ref={headingRef} style={headingStyle[0]} soft={true} header={'Experience'} fixed={headingFixed} />
+      <StickyHeader ref={headingRef} style={headingStyle[0]} header={'Experience'} fixed={headingFixed} />
       <ExperienceListWrapper>
         {experiences.map((experience, idx) => {
           return (
