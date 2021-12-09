@@ -8,7 +8,7 @@ import SkillPercentage from './SkillPercentage';
 import slideStyle from './style';
 
 import useRFA from '@hooks/useRFA';
-import stylePercentGenerate from '@utils/aboutStyle';
+import stylePercentGenerate from '@utils/style';
 
 import { skillsFirst, skillsSecond, skillGraph } from './text';
 

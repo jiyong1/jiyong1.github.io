@@ -1,4 +1,4 @@
-import { IStyleObjType } from '@utils/aboutStyle';
+import { IStyleObjType } from '@utils/style';
 
 const slideStyle: IStyleObjType[] = [
   {

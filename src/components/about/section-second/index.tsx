@@ -7,7 +7,7 @@ import StickyHeader from '../StickyHeader';
 
 import useRFA from '@hooks/useRFA';
 
-import stylePercentGenerate from '@utils/aboutStyle';
+import stylePercentGenerate from '@utils/style';
 import HeadingStyle from './style';
 import Experience from './Experience';
 import experiences from './text';

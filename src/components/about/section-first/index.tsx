@@ -8,7 +8,7 @@ import Text from './Text';
 
 import useRFA from '@hooks/useRFA';
 
-import stylePercentGenerate from '@utils/aboutStyle';
+import stylePercentGenerate from '@utils/style';
 import sectionFirstStyle from './style';
 
 const SectionFirst = (): JSX.Element => {
