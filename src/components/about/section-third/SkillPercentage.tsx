@@ -21,6 +21,8 @@ const SkillPercentage = ({ skill }: ISkillPerProps): JSX.Element => {
     if (!wrapper.current) return;
     const observer = new IntersectionObserver(observerHandler, { threshold: [0, 0.6] });
     observer.observe(wrapper.current);
+
+    return () => observer.disconnect();
   }, [wrapper]);
 
   return (

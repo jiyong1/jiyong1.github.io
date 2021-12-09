@@ -101,6 +101,8 @@ const SectionSecond = (): JSX.Element => {
     if (!secondSectionRef.current) return;
     const observer = new IntersectionObserver(rootObserverHandler, { threshold });
     observer.observe(secondSectionRef.current);
+
+    return () => observer.disconnect();
   }, [secondSectionRef]);
 
   useEffect(() => {
