@@ -7,6 +7,7 @@ import SectionFirst from '@components/about/section-first';
 import SectionSecond from '@components/about/section-second';
 import SectionThird from '@components/about/section-third';
 import SectionLast from '@components/about/section-last';
+import ScrollIndicator from '@components/about/ScrollIndicator';
 
 const About = (): JSX.Element => {
   return (
@@ -21,6 +22,7 @@ const About = (): JSX.Element => {
       <SectionSecond />
       <SectionThird />
       <SectionLast />
+      <ScrollIndicator />
     </BaseLayout>
   );
 };
