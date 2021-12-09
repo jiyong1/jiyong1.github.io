@@ -53,6 +53,7 @@ export default function stylePercentGenerate(
           }
         }
       }
+      value = Number(value.toFixed(5));
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       acc[key] = unit ? unit(value) : value;
