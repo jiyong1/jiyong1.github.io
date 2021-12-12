@@ -3,6 +3,7 @@ import React from 'react';
 import BaseLayout from '@layouts/base';
 // about components
 import ScrollTop from '@components/about/ScrollTop';
+import AboutIntro from '@components/about/AboutIntro';
 import SectionFirst from '@components/about/section-first';
 import SectionSecond from '@components/about/section-second';
 import SectionThird from '@components/about/section-third';
@@ -18,6 +19,7 @@ const About = (): JSX.Element => {
       description="프론트엔드 개발자 seventwo의 포트폴리오입니다."
     >
       <ScrollTop />
+      <AboutIntro />
       <SectionFirst />
       <SectionSecond />
       <SectionThird />
