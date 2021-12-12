@@ -1,7 +1,7 @@
 import React from 'react';
 
 type IStyleMaxType = {
-  [key in keyof React.CSSProperties]: {
+  [key in keyof React.CSSProperties | string]: {
     max: number;
     unit?: (value: number) => string;
     alternate?: boolean;

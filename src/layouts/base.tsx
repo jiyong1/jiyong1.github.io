@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import GlobalStyle from '../style/GlobalStyle';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import styled, { ThemeProvider } from 'styled-components';
+import DarkContext from '@context/theme';
 
 import SEO from '@components/SEO';
 import TopNav from '@components/topnav';
@@ -48,11 +49,11 @@ const BaseLayout = ({
         <ThemeToggler>
           {({ theme, toggleTheme }: IThemeProps) => {
             return (
-              <>
+              <DarkContext.Provider value={theme}>
                 <TopNav theme={theme} toggleTheme={toggleTheme} />
                 <Content style={{ maxWidth }}>{children}</Content>
                 <Footer />
-              </>
+              </DarkContext.Provider>
             );
           }}
         </ThemeToggler>

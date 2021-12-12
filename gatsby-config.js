@@ -108,6 +108,7 @@ module.exports = {
           '@types': 'src/types',
           '@hooks': 'src/hooks',
           '@utils': 'src/utils',
+          '@context': 'src/context',
         },
         extensions: ['js', 'jsx', 'ts', 'tsx'],
       },
