@@ -20,7 +20,7 @@ const Text = ({ styleArr, bottom }: ITextProps): JSX.Element => {
           일단 부딪쳐보는
         </p>
         <p className="text-item text-bold text-mid" style={styleArr[3]}>
-          소통을 중요하게 생각하는
+          사용자를 중심으로 생각하는
         </p>
         <p className="text-item base-bottom text-light" style={styleArr[0]}>
           <span className="text-bold">개발자 김지용</span>입니다.
