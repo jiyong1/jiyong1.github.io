@@ -3,16 +3,16 @@ const sectionFirstStyle: IStyleObjType[] = [
   {
     styleMaxObj: {
       transform: {
-        max: 100,
+        max: 1,
         unit: (value: number): string => {
-          return `translateY(${value}%)`;
+          return `scale(${1 - value})`;
         },
         alternate: true,
       },
     },
     start: 0,
     midRange: [2, 14],
-    end: 15,
+    end: 16,
   },
   {
     styleMaxObj: {

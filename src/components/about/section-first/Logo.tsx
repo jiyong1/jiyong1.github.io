@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { FC, CSSProperties } from 'react';
 import styled from 'styled-components';
 
 import logo from '@images/logo.png';
 
-const Logo = ({ fixed, bottom }: { fixed: boolean; bottom: boolean }): JSX.Element => {
+type LogoProps = {
+  fixed: boolean;
+  bottom: boolean;
+  circleStyle: CSSProperties;
+};
+
+const Logo: FC<LogoProps> = ({ fixed, bottom, circleStyle }) => {
   return (
     <LogoWrapper className={bottom ? 'bottom' : 'top'} style={fixed ? { position: 'fixed' } : {}}>
-      <img src={logo} alt="로고 이미지" />
+      <StyledSVG viewBox="0 0 100 100">
+        <defs>
+          <mask id="logo-mask">
+            <rect x="0" y="0" width="200" height="200" fill="black" />
+            <circle style={circleStyle} fill="white" cy="50" cx="50" r="100" />
+          </mask>
+        </defs>
+        <image x="0" y="0" width="100" height="100" href={logo} mask="url(#logo-mask)" />
+      </StyledSVG>
     </LogoWrapper>
   );
 };
@@ -30,6 +44,21 @@ const LogoWrapper = styled.div`
     display: block;
     max-width: 600px;
     width: 100%;
+  }
+`;
+
+const StyledSVG = styled.svg`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  mask * {
+    stroke: none !important;
+  }
+  mask circle {
+    transform-origin: center;
   }
 `;
 

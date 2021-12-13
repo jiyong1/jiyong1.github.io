@@ -9,7 +9,7 @@ interface ITextProps {
 const Text = ({ styleArr, bottom }: ITextProps): JSX.Element => {
   return (
     <TextWrapper className={styleArr[0] && !bottom ? 'text-display' : ''}>
-      <div className="invert-color">
+      <div>
         <p className="text-item text-light base-top" style={styleArr[0]}>
           안녕하세요.
         </p>
