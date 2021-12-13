@@ -39,7 +39,7 @@ const TextWrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 4;
-  font-size: 8vw;
+  font-size: 7vw;
   line-height: 3;
 
   &.text-display {
