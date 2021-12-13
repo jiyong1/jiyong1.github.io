@@ -48,6 +48,9 @@ const BaseLayout = ({
       <ThemeProvider theme={theme}>
         <ThemeToggler>
           {({ theme, toggleTheme }: IThemeProps) => {
+            if (!theme) {
+              return null;
+            }
             return (
               <DarkContext.Provider value={theme}>
                 <TopNav theme={theme} toggleTheme={toggleTheme} />

@@ -1,6 +1,5 @@
 /* eslint-disable no-restricted-globals */
 import React, { useCallback, useMemo, useRef, useEffect, useState } from 'react';
-import styled from 'styled-components';
 
 import ObserverSection from '../Section';
 import Logo from './Logo';
@@ -94,15 +93,5 @@ const SectionFirst = (): JSX.Element => {
     </ObserverSection>
   );
 };
-
-const SectionFoundation = styled.div`
-  width: 100vw;
-  height: 100vh;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 100%;
-  left: 0;
-  z-index: 3;
-`;
 
 export default SectionFirst;
