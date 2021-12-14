@@ -2,6 +2,7 @@
 import React, { useCallback, useMemo, useRef, useEffect, useState } from 'react';
 
 import ObserverSection from '../Section';
+import SectionHeader from '../SectionHeader';
 import Logo from './Logo';
 import Text from './Text';
 
@@ -87,10 +88,13 @@ const SectionFirst = (): JSX.Element => {
   }, [styleArr]);
 
   return (
-    <ObserverSection ref={sectionRef} style={{ height: '800vh' }}>
-      <Logo fixed={logoFixed} bottom={logoBottom} circleStyle={styleArr[0]} />
-      <Text styleArr={logoFixed || logoBottom ? textStyle : []} bottom={logoBottom} />
-    </ObserverSection>
+    <>
+      <SectionHeader text="INTRODUCE" />
+      <ObserverSection ref={sectionRef} style={{ height: '800vh' }}>
+        <Logo fixed={logoFixed} bottom={logoBottom} circleStyle={styleArr[0]} />
+        <Text styleArr={logoFixed || logoBottom ? textStyle : []} bottom={logoBottom} />
+      </ObserverSection>
+    </>
   );
 };
 

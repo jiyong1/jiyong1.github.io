@@ -3,20 +3,12 @@ import React, { useRef, useCallback, useMemo, useEffect, useState } from 'react'
 import styled from 'styled-components';
 
 import ObserverSection from '../Section';
-import StickyHeader from '../StickyHeader';
-
-import useRFA from '@hooks/useRFA';
-
-import stylePercentGenerate from '@utils/style';
-import HeadingStyle from './style';
+import SectionHeader from '../SectionHeader';
 import Experience from './Experience';
 import experiences from './text';
 
 const SectionSecond = (): JSX.Element => {
   const secondSectionRef = useRef<HTMLElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const [headingStyle, setHeadingStyle] = useState<React.CSSProperties[]>([]);
-  const [headingFixed, setHeadingFixed] = useState<boolean>(false);
   const [expDisplay, setExpDisplay] = useState<boolean[]>([false, false, false]);
 
   const [efd, setEfd] = useState<boolean>(false);
@@ -29,44 +21,6 @@ const SectionSecond = (): JSX.Element => {
   const expRefArr = useMemo(() => {
     return [expFirstRef, expSecondRef, expThirdref];
   }, [expFirstRef, expSecondRef, expThirdref]);
-
-  const threshold = useMemo(() => {
-    return Array.from({ length: 1001 }, (_, idx) => idx * 0.001);
-  }, []);
-
-  const setDefault = useCallback(() => {
-    setHeadingFixed(false);
-    setHeadingStyle([]);
-  }, []);
-
-  const headingStyleGenerater = useRFA<number>((percentage) => {
-    if (typeof percentage === 'number' && percentage > 0 && percentage < 100) {
-      const headingStyle = stylePercentGenerate(percentage, HeadingStyle, 1);
-      setHeadingStyle(headingStyle);
-    }
-  });
-
-  const rootObserverHandler = useCallback((entries: IntersectionObserverEntry[], obs: IntersectionObserver) => {
-    const root = entries[0];
-
-    const topScrollHeight = 16 * 0.6;
-    const windowHeight = innerHeight;
-    const viewHeight = windowHeight - topScrollHeight;
-
-    const rootTop = root.boundingClientRect.top;
-
-    if (root.isIntersecting) {
-      if (rootTop >= topScrollHeight) {
-        const percentage = ((viewHeight - rootTop) / viewHeight) * 100;
-        headingStyleGenerater(percentage);
-        setHeadingFixed(false);
-      } else {
-        setHeadingFixed(true);
-      }
-    } else {
-      setDefault();
-    }
-  }, []);
 
   const expParseIdx = useCallback((id: string): number | undefined => {
     const rv = parseInt(id.substr(5));
@@ -98,14 +52,6 @@ const SectionSecond = (): JSX.Element => {
   }, [efd, esd, etd]);
 
   useEffect(() => {
-    if (!secondSectionRef.current) return;
-    const observer = new IntersectionObserver(rootObserverHandler, { threshold });
-    observer.observe(secondSectionRef.current);
-
-    return () => observer.disconnect();
-  }, [secondSectionRef]);
-
-  useEffect(() => {
     if (
       !expRefArr.every(({ current }) => {
         if (current) return true;
@@ -119,15 +65,9 @@ const SectionSecond = (): JSX.Element => {
     });
   }, [expRefArr]);
 
-  useEffect(() => {
-    if (headingFixed) {
-      setHeadingStyle([]);
-    }
-  }, [headingFixed]);
-
   return (
     <ObserverSection id="second--section--root" ref={secondSectionRef} style={{ marginTop: '50vh' }}>
-      <StickyHeader ref={headingRef} style={headingStyle[0]} header={'Experience'} fixed={headingFixed} />
+      <SectionHeader text={'EXPERIENCE'} fixed={true} />
       <ExperienceListWrapper>
         {experiences.map((experience, idx) => {
           return (

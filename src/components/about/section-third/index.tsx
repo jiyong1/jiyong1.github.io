@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components';
 
 import ObserverSection from '../Section';
-import StickyHeader from '../StickyHeader';
+import SectionHeader from '../SectionHeader';
 import SkillSlider from './SkillSlider';
 import SkillPercentage from './SkillPercentage';
 import slideStyle from './style';
@@ -50,7 +50,7 @@ const SectionThird = (): JSX.Element => {
 
   return (
     <ObserverSection ref={sectionRef} style={{ marginTop: '50vh' }}>
-      <StickyHeader header={'Skills'} fixed={true} />
+      <SectionHeader text={'SKILLS'} fixed={true} />
       <SliderWrapper ref={sliderWrapperRef}>
         <SkillSlider style={slideStyleArr[0]} left={true} skills={skillsFirst} />
         <SkillSlider style={slideStyleArr[1]} left={false} skills={skillsSecond} />
