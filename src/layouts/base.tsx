@@ -5,7 +5,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import DarkContext from '@context/theme';
 
 import SEO from '@components/SEO';
-import TopNav from '@components/TopNav';
+import TopNav from '@components/MainNav';
 import Footer from '@components/Footer';
 import theme from '../style/theme';
 
