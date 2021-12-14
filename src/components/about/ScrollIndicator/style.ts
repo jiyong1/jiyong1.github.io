@@ -11,6 +11,7 @@ const scrollPathAnimation = keyframes`
 
 const ScrollIndicatorWrapper = styled.div`
   position: fixed;
+  z-index: 4;
   width: 100%;
   bottom: 0.5rem;
   left: 0;
