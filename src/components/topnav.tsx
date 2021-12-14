@@ -4,8 +4,8 @@ import { Link } from 'gatsby';
 import logo from '@images/logo.png';
 
 import { IThemeTogglerProps } from '@types';
-import ThemeToggler from './theme-toggler';
-import Portal from './modal';
+import ThemeToggler from './ThemeToggler';
+import Portal from './ModalPortal';
 
 const TopNav = ({ theme, toggleTheme }: IThemeTogglerProps): JSX.Element => {
   const [contentDisplay, setContentDisplay] = useState<boolean>(false);

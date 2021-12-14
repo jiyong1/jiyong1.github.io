@@ -1,13 +1,13 @@
 import React from 'react';
 
-import BaseLayout from '@layouts/base';
+import BaseLayout from '@layouts/Base';
 // about components
 import ScrollTop from '@components/about/ScrollTop';
 import AboutIntro from '@components/about/AboutIntro';
-import SectionFirst from '@components/about/section-first';
-import SectionSecond from '@components/about/section-second';
-import SectionThird from '@components/about/section-third';
-import SectionLast from '@components/about/section-last';
+import SectionFirst from '@components/about/SectionFirst';
+import SectionSecond from '@components/about/SectionSecond';
+import SectionThird from '@components/about/SectionThird';
+import SectionLast from '@components/about/SectionLast';
 import ScrollIndicator from '@components/about/ScrollIndicator';
 
 const About = (): JSX.Element => {

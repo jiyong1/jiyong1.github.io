@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import BaseLayout from './base';
+import BaseLayout from './Base';
 import CategoryPick from '@components/CategoryPick';
 
 import { AllCategoriesQuery, CategoriesQuery, SitePageContext } from '../../graphql-types';

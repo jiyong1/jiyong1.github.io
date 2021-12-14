@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import styled from 'styled-components';
 
-import BaseLayout from '@layouts/base';
+import BaseLayout from '@layouts/Base';
 import SNB from '@components/SNB';
 import Utterances from '@components/Utterances';
 
