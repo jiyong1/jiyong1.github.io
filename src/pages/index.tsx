@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseLayout from '@layouts/Base';
+import BaseLayout from '@layouts/base';
 
 import Introduce from '@components/home/Introduce';
 import AboutSection from '@components/home/AboutSection';

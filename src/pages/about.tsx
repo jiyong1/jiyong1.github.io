@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BaseLayout from '@layouts/Base';
+import BaseLayout from '@layouts/base';
 // about components
 import ScrollTop from '@components/about/ScrollTop';
 import AboutIntro from '@components/about/AboutIntro';
