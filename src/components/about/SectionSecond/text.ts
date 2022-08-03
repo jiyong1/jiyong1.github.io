@@ -2,6 +2,7 @@ interface IExperienceProject {
   content: string;
   github?: string;
   youtube?: string;
+  link?: string;
 }
 
 export interface IExperienceType {
@@ -61,6 +62,20 @@ const experiences: IExperienceType[] = [
         content: 'React를 이용한 배민 문방구 서비스 클론 프로젝트',
         github: 'https://github.com/woowa-techcamp-2021/store-1',
         youtube: 'https://youtu.be/IZD_atKAjwE',
+      },
+    ],
+  },
+  {
+    header: '💻 라프텔 프론트엔드 개발자',
+    date: '2022.02 ~',
+    description: '라프텔의 웹과 앱을 개발하는 프론트엔드 엔지니어로 활동하고 있습니다.',
+    projects: [
+      {
+        content: 'React를 이용하여 라프텔 웹을 개발합니다.',
+        link: 'https://laftel.net',
+      },
+      {
+        content: 'React-native를 이용하여 라프텔 앱을 개발합니다.',
       },
     ],
   },

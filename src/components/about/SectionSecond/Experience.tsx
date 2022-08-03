@@ -31,23 +31,24 @@ const Experience = forwardRef<HTMLLIElement, IExperienceProps>(({ experience, le
           <>
             <ul className="exp--detail--wrapper bg-normal">
               <div className="exp--detail bg-normal invert">Detail</div>
-              {projects.map(({ content, github, youtube }) => {
+              {projects.map(({ content, github, youtube, link }) => {
                 return (
                   <li key={content} className="color-soft">
                     <p>{content}</p>
-                    {github ? (
+                    {github && (
                       <a target="_blank" href={github} rel="noreferrer">
                         <i className="fab fa-github"></i>
                       </a>
-                    ) : (
-                      <></>
                     )}
-                    {youtube ? (
+                    {youtube && (
                       <a target="_blank" href={youtube} rel="noreferrer">
                         <i className="fab fa-youtube"></i>
                       </a>
-                    ) : (
-                      <></>
+                    )}
+                    {link && (
+                      <a target="_blank" href={link} rel="noreferrer">
+                        <i className="fas fa-link"></i>
+                      </a>
                     )}
                   </li>
                 );
