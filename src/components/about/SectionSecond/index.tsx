@@ -75,10 +75,8 @@ const SectionSecond = (): JSX.Element => {
               id={`exp--${idx}`}
               idx={idx}
               key={`experience-${idx}`}
-              ref={expRefArr[idx]}
               experience={experience}
               left={idx % 2 === 0}
-              display={expDisplay[idx]}
             />
           );
         })}

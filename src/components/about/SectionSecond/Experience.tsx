@@ -1,25 +1,43 @@
-import React, { forwardRef } from 'react';
+import React, { useRef, useState, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
+import { useIntersectionObserver } from '@hooks/useIntersectionObserver';
 
 import { IExperienceType } from './text';
 
 interface IExperienceProps {
   experience: IExperienceType;
   left: boolean;
-  display: boolean;
   idx: number;
   id: string;
 }
 
-const Experience = forwardRef<HTMLLIElement, IExperienceProps>(({ experience, left, display, idx, id }, ref) => {
+const Experience: React.FC<IExperienceProps> = ({ experience, left, idx, id }) => {
   const { header, description, projects, date } = experience;
+  const ref = useRef<HTMLLIElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  const observerHandler = useCallback<IntersectionObserverCallback>((entries, obs) => {
+    entries.forEach((entry) => {
+      const nextVisible = (entry.isIntersecting && entry.intersectionRatio > 0.6) || entry.boundingClientRect.top < 10;
+      setVisible(nextVisible);
+    });
+  }, []);
+
+  const observerOptions = useMemo<IntersectionObserverInit>(
+    () => ({
+      threshold: [0, 0.7],
+    }),
+    [],
+  );
+
+  useIntersectionObserver(ref, observerHandler, observerOptions);
 
   return (
     <ExperieceWrapper
       id={id}
       ref={ref}
       style={{ gridRowStart: idx + 1 }}
-      className={(left ? 'from-left' : 'from-right') + (display ? ' display' : '')}
+      className={(left ? 'from-left' : 'from-right') + (visible ? ' display' : '')}
     >
       <div className="bg-soft exp--container">
         <div className="exp--item--header">
@@ -61,7 +79,7 @@ const Experience = forwardRef<HTMLLIElement, IExperienceProps>(({ experience, le
       </div>
     </ExperieceWrapper>
   );
-});
+};
 
 Experience.displayName = 'Experience';
 
