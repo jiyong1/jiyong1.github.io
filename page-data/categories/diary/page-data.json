@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-category-detail-tsx",
+    "path": "/categories/diary/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"frontmatter":{"slug":"/posts/woowa-tech-camp","title":"우아한 테크캠프 4기 회고 (feat, SSAFY)","description":"🥺 내 개발 인생의 터닝 포인트가 된 우아한 테크캠프 4기를 회고합니다.","date":"October 20, 2021","categories":["diary"],"featuredImage":{"childImageSharp":{"gatsbyImageData":{"layout":"fullWidth","backgroundColor":"transparent","images":{"fallback":{"src":"/static/788638ba9d56b755ee1750e5c9559674/8e19f/woowacamp.jpg","srcSet":"/static/788638ba9d56b755ee1750e5c9559674/8e19f/woowacamp.jpg 433w","sizes":"100vw"},"sources":[{"srcSet":"/static/788638ba9d56b755ee1750e5c9559674/5ef15/woowacamp.avif 433w","type":"image/avif","sizes":"100vw"},{"srcSet":"/static/788638ba9d56b755ee1750e5c9559674/a099f/woowacamp.webp 433w","type":"image/webp","sizes":"100vw"}]},"width":1,"height":0.6674364896073902}}}}}}]}},"pageContext":{"category":"diary"}},
+    "staticQueryHashes": ["3990537279"]}
