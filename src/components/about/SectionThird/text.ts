@@ -62,8 +62,6 @@ export const skillGraph: ISkillGraph[] = [
     description: [
       '모던 자바스크립트에 익숙합니다.',
       'TypeScript를 사용할 수 있습니다.',
-      'Webpack을 사용할 수 있습니다.',
-      'Babel, SWC transpiler를 사용할 수 있습니다.',
       'Vanilla JS/TS를 이용하여 SPA를 구현해본 경험이 있습니다.',
       'jest, testing-library를 이용하여 테스트 코드를 작성한 경험이 있습니다.',
     ],
@@ -72,28 +70,22 @@ export const skillGraph: ISkillGraph[] = [
   {
     name: 'React',
     description: [
-      '함수형 컴포넌트와 hooks에 익숙합니다.',
-      'custom hook을 구현한 경험이 있습니다.',
+      '함수형 컴포넌트 작성에 익숙합니다.',
       'CSS-in-JS (styled-component)를 사용한 경험이 있습니다.',
-      'Redux & saga를 사용한 경험이 있습니다.',
-      'recoil을 사용한 경험이 있습니다.',
-      'react-query를 사용한 경험이 있습니다.',
+      '여러가지 상태관리 라이브러리를 사용한 경험이 많습니다. (redux, recoil, react-query 등등..)',
       'Storybook을 사용한 경험이 있습니다.',
       'Next.js, Gatsby를 사용한 경험이 있습니다.',
+      'React-native를 사용해본 경험이 있습니다.',
     ],
     per: 75,
   },
   {
     name: 'Vue.js',
-    description: ['vue2를 사용한 경험이 있습니다.', 'vuex를 사용한 경험이 있습니다.'],
-    per: 50,
-  },
-  {
-    name: 'Docker & ...',
     description: [
-      'Docker를 이용하여 개발 환경 및 인프라 환경을 셋팅한 경험이 있습니다.',
-      'Github Action을 이용하여 CI/CD를 구성한 경험이 있습니다.',
+      'vue2, 3를 사용한 경험이 있습니다.',
+      'vuex를 사용한 경험이 있습니다.',
+      'Composition api를 사용한 경험이 있습니다.',
     ],
-    per: 25,
+    per: 50,
   },
 ];
